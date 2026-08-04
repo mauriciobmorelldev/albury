@@ -64,8 +64,8 @@ export default function BookingModal() {
             <div className="relative z-10 flex h-full flex-col justify-between">
               <div>
                 <p className="text-xs font-black uppercase tracking-[.22em] text-soft-gold">Llamada Albury Design</p>
-                <h2 id="booking-title" className="mt-6 text-6xl font-black uppercase leading-[.88] tracking-[-.04em]">Agenda tu consulta gratis.</h2>
-                <p className="mt-6 text-lg font-semibold leading-8 text-warm-white/72">Contanos sobre tu propiedad y coordinamos el mejor camino: diseño virtual, gestión integral o una estrategia a medida.</p>
+                <h2 id="booking-title" className="mt-6 text-6xl font-black uppercase leading-[.88] tracking-[-.04em]">Agenda un diagnóstico gratis.</h2>
+                <p className="mt-6 text-lg font-semibold leading-8 text-warm-white/72">Revisamos objetivo, huésped ideal, dolores, objeciones y oportunidades visuales para convertir tu propiedad en una oferta más reservable.</p>
               </div>
               <div className="grid grid-cols-3 gap-3">
                 {["30 min", "Online", "Gratis"].map((item) => (
@@ -91,7 +91,7 @@ export default function BookingModal() {
               <form onSubmit={handleSubmit} className="grid gap-5">
                 <div className="lg:hidden">
                   <p className="text-xs font-black uppercase tracking-[.22em] text-gold">Llamada Albury Design</p>
-                  <h2 id="booking-title" className="mt-3 text-4xl font-black leading-none tracking-[-.04em]">Agenda tu consulta gratis.</h2>
+                  <h2 id="booking-title" className="mt-3 text-4xl font-black leading-none tracking-[-.04em]">Agenda un diagnóstico gratis.</h2>
                 </div>
                 <div className="grid gap-4 sm:grid-cols-2">
                   <label className="grid gap-2 text-xs font-black uppercase tracking-[.14em] text-charcoal/52">Nombre completo<input required className="rounded-2xl border border-charcoal/12 bg-stone/70 px-4 py-4 text-base font-bold normal-case tracking-normal outline-none transition focus:border-gold" placeholder="Tu nombre" /></label>
@@ -118,3 +118,4 @@ export default function BookingModal() {
     </div>
   );
 }
+

@@ -3,11 +3,13 @@
 import { useLayoutEffect, useRef } from "react";
 import { getGsap } from "@/lib/gsap";
 
-const mapSteps = [
-  ["01", "Diseño", "Tableros, estilo y dirección visual para decidir sin fricción."],
-  ["02", "Compra", "Lista, prioridades y mobiliario pensado para ahorrar tiempo."],
-  ["03", "Instalación", "Guía clara para que cada espacio quede listo para fotografiar."],
-  ["04", "Beneficio", "Menos horas perdidas, más control y una propiedad mejor presentada."],
+const methodSteps = [
+  ["01", "Objetivo", "Definimos qué tiene que lograr la propiedad: más reservas, mejor tarifa, más clics o mejor posicionamiento."],
+  ["02", "Perfil del cliente", "Entendemos quién reserva, qué espera y qué señales visuales aumentan confianza."],
+  ["03", "Dolores y objeciones", "Detectamos por qué un huésped podría ignorar el anuncio, compararlo por precio o dudar antes de reservar."],
+  ["04", "Deseos", "Convertimos amenities, espacios y detalles en motivos concretos para imaginar la estadía."],
+  ["05", "Pruebas", "Renders, composición fotográfica y datos sostienen la promesa antes de ejecutar."],
+  ["06", "Narrativa", "Ordenamos jerarquía, diseño y copy para que el anuncio venda sin sentirse forzado."],
 ];
 
 export default function ServicesFAQ() {
@@ -19,58 +21,14 @@ export default function ServicesFAQ() {
 
     const { gsap } = getGsap();
     const ctx = gsap.context(() => {
-      gsap.from(".map-heading > *", {
+      gsap.from(".method-reveal", {
         autoAlpha: 0,
-        y: 28,
-        filter: "blur(10px)",
-        stagger: 0.08,
-        duration: 0.85,
+        y: 22,
+        filter: "blur(4px)",
+        stagger: 0.06,
+        duration: 0.5,
         ease: "power3.out",
-        scrollTrigger: { trigger: root, start: "top 72%", once: true },
-      });
-
-      gsap.fromTo(
-        ".map-line-fill",
-        { scaleY: 0, transformOrigin: "top center" },
-        {
-          scaleY: 1,
-          ease: "none",
-          scrollTrigger: {
-            trigger: ".decision-map",
-            start: "top 70%",
-            end: "bottom 30%",
-            scrub: 0.8,
-          },
-        },
-      );
-
-      gsap.utils.toArray<HTMLElement>(".map-node").forEach((node) => {
-        gsap.fromTo(
-          node,
-          { autoAlpha: 0, y: 42, scale: 0.92, filter: "blur(12px)" },
-          {
-            autoAlpha: 1,
-            y: 0,
-            scale: 1,
-            filter: "blur(0px)",
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: node,
-              start: "top 86%",
-              end: "top 42%",
-              scrub: 0.75,
-            },
-          },
-        );
-      });
-
-      gsap.utils.toArray<HTMLElement>(".map-orbit").forEach((orbit, index) => {
-        gsap.to(orbit, {
-          rotate: index % 2 === 0 ? 360 : -360,
-          duration: 18 + index * 2,
-          repeat: -1,
-          ease: "none",
-        });
+        scrollTrigger: { trigger: root, start: "top 78%", once: true },
       });
     }, root);
 
@@ -78,49 +36,29 @@ export default function ServicesFAQ() {
   }, []);
 
   return (
-    <section id="servicios" ref={rootRef} className="bg-warm-white px-5 pb-0 pt-24 text-charcoal sm:px-8 lg:px-14 lg:pt-28">
+    <section id="servicios" ref={rootRef} className="bg-warm-white px-5 py-24 text-charcoal sm:px-8 lg:px-14 lg:py-32">
       <div className="mx-auto max-w-7xl">
-        <div className="map-heading mx-auto max-w-5xl text-center">
-          <p className="mb-5 text-xs font-black uppercase tracking-[.22em] text-gold">Diseño sin fricción</p>
-          <h2 className="text-5xl font-black leading-[.95] tracking-[-.03em] text-charcoal sm:text-7xl lg:text-8xl">
-            Nosotros tomamos todas las decisiones de diseño por ti
-          </h2>
+        <div className="grid gap-10 lg:grid-cols-[.72fr_1.28fr] lg:items-end">
+          <div className="method-reveal">
+            <p className="mb-5 text-xs font-black uppercase tracking-[.22em] text-gold">Jerarquía antes que animación</p>
+            <h2 className="text-5xl font-black leading-[.92] tracking-[-.035em] sm:text-7xl lg:text-8xl">Un funnel visual para que tu propiedad se entienda y se desee.</h2>
+          </div>
+          <p className="method-reveal max-w-3xl text-xl font-bold leading-9 text-charcoal/68">La web, los renders y el anuncio no deberían sentirse como un juego. Tienen que guiar una decisión: captar atención, generar identificación, mostrar una solución diferente, probar credibilidad, reducir riesgo e invitar a actuar.</p>
         </div>
 
-        <div className="decision-map relative mx-auto mt-14 min-h-[1040px] max-w-6xl overflow-hidden sm:mt-16 lg:min-h-[1120px]">
-          <div className="absolute left-1/2 top-20 h-[900px] w-px -translate-x-1/2 bg-charcoal/10 lg:h-[980px]" />
-          <div className="map-line-fill absolute left-1/2 top-20 h-[900px] w-[3px] -translate-x-1/2 rounded-full bg-gradient-to-b from-gold via-charcoal/55 to-gold lg:h-[980px]" />
-          <div className="pointer-events-none absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-warm-white to-transparent" />
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-56 bg-gradient-to-t from-warm-white to-transparent" />
-
-          <div className="absolute left-1/2 top-8 z-10 -translate-x-1/2 rounded-full border border-gold/25 bg-stone/70 px-5 py-3 text-[10px] font-black uppercase tracking-[.22em] text-charcoal/58 shadow-[0_18px_70px_rgba(13,41,49,.08)] backdrop-blur-xl">
-            Mapa de decisiones
-          </div>
-
-          <div className="grid gap-20 pt-32 sm:gap-24">
-            {mapSteps.map(([number, title, copy], index) => (
-              <article
-                key={title}
-                className={`map-node relative grid items-center gap-5 md:grid-cols-[1fr_116px_1fr] ${index % 2 === 0 ? "md:[&_.map-copy]:col-start-1 md:[&_.map-copy]:text-right" : "md:[&_.map-copy]:col-start-3"}`}
-              >
-                <div className="map-copy rounded-[32px] border border-charcoal/10 bg-warm-white/82 p-7 shadow-[0_24px_90px_rgba(13,41,49,.08)] backdrop-blur-xl md:row-start-1">
-                  <p className="text-xs font-black uppercase tracking-[.18em] text-gold">Paso {number}</p>
-                  <h3 className="mt-3 text-5xl font-black leading-none tracking-[-.04em] text-charcoal">{title}</h3>
-                  <p className="mt-4 text-base font-semibold leading-7 text-charcoal/62">{copy}</p>
-                </div>
-                <div className="relative z-10 mx-auto grid h-24 w-24 place-items-center rounded-full border border-gold/35 bg-warm-white text-sm font-black text-charcoal shadow-[0_24px_70px_rgba(227,74,46,.14)] md:col-start-2 md:row-start-1">
-                  <span className="map-orbit absolute -inset-3 rounded-full border border-dashed border-gold/24" />
-                  <span className="absolute inset-3 rounded-full bg-gold/10" />
-                  <span className="relative">{number}</span>
-                </div>
-              </article>
-            ))}
-          </div>
+        <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          {methodSteps.map(([number, title, copy]) => (
+            <article key={title} className="method-reveal group rounded-[30px] border border-charcoal/10 bg-stone p-7 shadow-[0_20px_70px_rgba(13,41,49,.06)] transition duration-300 hover:-translate-y-1 hover:bg-warm-white">
+              <div className="flex items-center justify-between gap-5">
+                <p className="grid h-12 w-12 place-items-center rounded-full bg-charcoal text-sm font-black text-warm-white">{number}</p>
+                <div className="h-px flex-1 bg-charcoal/10" />
+              </div>
+              <h3 className="mt-8 text-4xl font-black leading-none tracking-[-.03em] text-charcoal">{title}</h3>
+              <p className="mt-5 text-base font-semibold leading-8 text-charcoal/62">{copy}</p>
+            </article>
+          ))}
         </div>
       </div>
     </section>
   );
 }
-
-
-

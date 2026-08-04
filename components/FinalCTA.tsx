@@ -31,16 +31,16 @@ export default function FinalCTA() {
       <div className="absolute inset-x-0 top-0 wave-divider-stone rotate-180" />
       <div className="mx-auto grid max-w-7xl gap-12 pt-16 lg:grid-cols-[1fr_520px] lg:items-center">
         <div className="cta-reveal">
-          <p className="mb-5 text-xs font-black uppercase tracking-[.22em] text-soft-gold">Creemos una propiedad que venda la estadía</p>
+          <p className="mb-5 text-xs font-black uppercase tracking-[.22em] text-soft-gold">De propiedad linda a oferta reservable</p>
           <h2 className="max-w-5xl text-6xl font-black uppercase leading-[.88] tracking-[-.035em] sm:text-8xl lg:text-9xl">
-            Creemos una propiedad que los huéspedes quieran reservar.
+            Convirtamos tu propiedad en una oferta que los huéspedes quieran reservar.
           </h2>
           <p className="mt-8 max-w-2xl text-xl font-semibold leading-9 text-warm-white/72">
-            Agenda una consulta gratis y descubrí cómo convertir tu propiedad en una experiencia memorable, fotogénica y rentable.
+            Agenda un diagnóstico gratis y descubrí qué está frenando reservas, tarifa y diferenciación antes de invertir en diseño.
           </p>
           <div className="mt-10 flex flex-col gap-3 sm:flex-row">
             <a href="mailto:info@alburydesign.com" className="inline-flex items-center justify-center gap-4 rounded-lg bg-gold px-7 py-4 text-sm font-black text-warm-white transition hover:-translate-y-1 hover:bg-[#b93322]">
-              Consulta Gratis <span className="grid h-8 w-8 place-items-center rounded-full bg-warm-white/16">→</span>
+              Diagnóstico Gratis <span className="grid h-8 w-8 place-items-center rounded-full bg-warm-white/16">→</span>
             </a>
             <a href="mailto:info@alburydesign.com" className="inline-flex items-center justify-center rounded-lg border border-warm-white/28 px-7 py-4 text-sm font-black text-warm-white transition hover:-translate-y-1 hover:bg-warm-white/10">
               Solicitar información
@@ -55,3 +55,5 @@ export default function FinalCTA() {
     </section>
   );
 }
+
+

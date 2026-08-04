@@ -11,46 +11,52 @@ export default function ChatPopup() {
     return () => window.clearTimeout(timer);
   }, []);
 
-  if (dismissed) return null;
-
   return (
     <div className="fixed bottom-5 right-5 z-[60] flex flex-col items-end gap-2 sm:bottom-7 sm:right-7">
-      <div
-        className={`relative w-[min(300px,calc(100vw-2.5rem))] overflow-hidden rounded-[24px] border border-warm-white/24 bg-charcoal/88 p-4 text-warm-white shadow-[0_22px_70px_rgba(7,28,34,.22)] backdrop-blur-2xl transition-all duration-300 ${
-          visible ? "translate-y-0 scale-100 opacity-100" : "translate-y-3 scale-[.98] opacity-0"
-        }`}
-      >
-        <div className="pointer-events-none absolute -right-10 -top-10 h-28 w-28 rounded-full bg-gold/18 blur-2xl" />
-        <div className="pointer-events-none absolute -bottom-12 left-8 h-24 w-24 rounded-full bg-[#2fc35d]/14 blur-2xl" />
-        <button
-          type="button"
-          aria-label="Cerrar mensaje"
-          className="absolute right-3 top-3 z-10 grid h-7 w-7 place-items-center rounded-full bg-warm-white/10 text-warm-white/58 transition hover:bg-warm-white/18 hover:text-warm-white"
-          onClick={() => setDismissed(true)}
+      {!dismissed ? (
+        <div
+          className={`relative w-[min(300px,calc(100vw-2.5rem))] overflow-hidden rounded-[24px] border border-warm-white/24 bg-charcoal/88 p-4 text-warm-white shadow-[0_22px_70px_rgba(7,28,34,.22)] backdrop-blur-2xl transition-all duration-300 ${
+            visible ? "translate-y-0 scale-100 opacity-100" : "translate-y-3 scale-[.98] opacity-0"
+          }`}
         >
-          ×
-        </button>
+          <div className="pointer-events-none absolute -right-10 -top-10 h-28 w-28 rounded-full bg-gold/18 blur-2xl" />
+          <div className="pointer-events-none absolute -bottom-12 left-8 h-24 w-24 rounded-full bg-[#2fc35d]/14 blur-2xl" />
+          <button
+            type="button"
+            aria-label="Cerrar mensaje"
+            className="absolute right-3 top-3 z-30 grid h-7 w-7 place-items-center rounded-full bg-warm-white/12 text-warm-white/70 transition hover:bg-warm-white/22 hover:text-warm-white"
+            onClick={(event) => {
+              event.preventDefault();
+              event.stopPropagation();
+              setDismissed(true);
+            }}
+          >
+            ×
+          </button>
 
-        <div className="relative z-10 flex items-start gap-3 pr-7">
-          <div className="grid h-10 w-10 shrink-0 place-items-center rounded-2xl bg-warm-white text-[10px] font-black uppercase leading-none tracking-[.05em] text-charcoal shadow-[0_12px_30px_rgba(7,28,34,.22)]">
-            AD
+          <div className="relative z-10 flex items-start gap-3 pr-7">
+            <div className="grid h-10 w-10 shrink-0 place-items-center rounded-2xl bg-warm-white text-[10px] font-black uppercase leading-none tracking-[.05em] text-charcoal shadow-[0_12px_30px_rgba(7,28,34,.22)]">
+              AD
+            </div>
+            <div>
+              <p className="text-[10px] font-black uppercase tracking-[.18em] text-soft-gold">Albury Design</p>
+              <p className="mt-1 text-sm font-extrabold leading-6 text-warm-white/88">¿Querés detectar por qué tu Airbnb no convierte más?</p>
+              <a
+                href="#contacto"
+                data-booking-trigger
+                className="mt-3 inline-flex items-center gap-2 rounded-full bg-gold px-4 py-2 text-xs font-black text-white shadow-[0_10px_28px_rgba(227,74,46,.26)] transition hover:-translate-y-0.5 hover:bg-[#b93322]"
+              >
+                Pedir diagnóstico <span aria-hidden="true">→</span>
+              </a>
+            </div>
           </div>
-          <div>
-            <p className="text-[10px] font-black uppercase tracking-[.18em] text-soft-gold">Albury Design</p>
-            <p className="mt-1 text-sm font-extrabold leading-6 text-warm-white/88">¿Querés que veamos tu propiedad?</p>
-            <a
-              href="#contacto" data-booking-trigger
-              className="mt-3 inline-flex items-center gap-2 rounded-full bg-gold px-4 py-2 text-xs font-black text-white shadow-[0_10px_28px_rgba(227,74,46,.26)] transition hover:-translate-y-0.5 hover:bg-[#b93322]"
-            >
-              Hablar ahora <span aria-hidden="true">→</span>
-            </a>
-          </div>
+          <div className="absolute -bottom-3 right-8 h-6 w-6 rotate-45 border-b border-r border-warm-white/12 bg-charcoal/88" />
         </div>
-        <div className="absolute -bottom-3 right-8 h-6 w-6 rotate-45 border-b border-r border-warm-white/12 bg-charcoal/88" />
-      </div>
+      ) : null}
 
       <a
-        href="#contacto" data-booking-trigger
+        href="#contacto"
+        data-booking-trigger
         aria-label="Abrir WhatsApp"
         className="group relative grid h-[60px] w-[60px] place-items-center rounded-full bg-[#28c840] text-warm-white shadow-[0_18px_50px_rgba(40,200,64,.35)] transition hover:-translate-y-1 hover:scale-105"
       >
@@ -66,7 +72,3 @@ export default function ChatPopup() {
     </div>
   );
 }
-
-
-
-

@@ -40,11 +40,11 @@ export default function InvestmentSolutions() {
   }, []);
 
   return (
-    <section ref={rootRef} className="bg-charcoal px-5 py-24 text-warm-white sm:px-8 lg:px-14 lg:py-32">
+    <section id="servicios" ref={rootRef} className="bg-charcoal px-5 py-24 text-warm-white sm:px-8 lg:px-14 lg:py-32">
       <div className="mx-auto max-w-7xl">
         <div className="solution-reveal max-w-5xl">
           <p className="mb-5 text-xs font-black uppercase tracking-[.22em] text-soft-gold">Servicios</p>
-          <h2 className="text-5xl font-black uppercase leading-[.92] tracking-[-.035em] sm:text-7xl lg:text-8xl">Una solución para cada inversionista de alquiler a corto plazo</h2>
+          <h2 className="text-5xl font-black uppercase leading-[.92] tracking-[-.035em] sm:text-7xl lg:text-8xl">Elegí el nivel de acompañamiento según tu etapa</h2>
         </div>
         <div className="mt-14 grid gap-6 lg:grid-cols-2">
           {plans.map((plan, index) => (
@@ -67,3 +67,4 @@ export default function InvestmentSolutions() {
     </section>
   );
 }
+
