@@ -2,7 +2,7 @@
 
 import { FormEvent, useEffect, useState } from "react";
 
-const serviceOptions = ["Diseño Virtual", "Diseño y Gestión del Proyecto", "No estoy seguro todavía"];
+const serviceOptions = ["Diseño Virtual STR", "Diseño STR + Gestión del Proyecto", "No estoy seguro todavía"];
 
 export default function BookingModal() {
   const [open, setOpen] = useState(false);
@@ -64,8 +64,8 @@ export default function BookingModal() {
             <div className="relative z-10 flex h-full flex-col justify-between">
               <div>
                 <p className="text-xs font-black uppercase tracking-[.22em] text-soft-gold">Llamada Albury Design</p>
-                <h2 id="booking-title" className="mt-6 text-6xl font-black uppercase leading-[.88] tracking-[-.04em]">Agenda un diagnóstico gratis.</h2>
-                <p className="mt-6 text-lg font-semibold leading-8 text-warm-white/72">Revisamos objetivo, huésped ideal, dolores, objeciones y oportunidades visuales para convertir tu propiedad en una oferta más reservable.</p>
+                <h2 id="booking-title" className="mt-6 text-6xl font-black uppercase leading-[.88] tracking-[-.04em]">Evalúa el potencial de tu propiedad.</h2>
+                <p className="mt-6 text-lg font-semibold leading-8 text-warm-white/72">Revisamos mercado, huésped ideal, nivel de competencia, oportunidad de ADR y brechas visuales para entender si el diseño puede multiplicar el rendimiento del activo.</p>
               </div>
               <div className="grid grid-cols-3 gap-3">
                 {["30 min", "Online", "Gratis"].map((item) => (
@@ -91,7 +91,7 @@ export default function BookingModal() {
               <form onSubmit={handleSubmit} className="grid gap-5">
                 <div className="lg:hidden">
                   <p className="text-xs font-black uppercase tracking-[.22em] text-gold">Llamada Albury Design</p>
-                  <h2 id="booking-title" className="mt-3 text-4xl font-black leading-none tracking-[-.04em]">Agenda un diagnóstico gratis.</h2>
+                  <h2 id="booking-title" className="mt-3 text-4xl font-black leading-none tracking-[-.04em]">Evalúa el potencial de tu propiedad.</h2>
                 </div>
                 <div className="grid gap-4 sm:grid-cols-2">
                   <label className="grid gap-2 text-xs font-black uppercase tracking-[.14em] text-charcoal/52">Nombre completo<input required className="rounded-2xl border border-charcoal/12 bg-stone/70 px-4 py-4 text-base font-bold normal-case tracking-normal outline-none transition focus:border-gold" placeholder="Tu nombre" /></label>
@@ -105,9 +105,9 @@ export default function BookingModal() {
                   <label className="grid gap-2 text-xs font-black uppercase tracking-[.14em] text-charcoal/52">Servicio<select className="rounded-2xl border border-charcoal/12 bg-stone/70 px-4 py-4 text-base font-bold normal-case tracking-normal outline-none transition focus:border-gold">{serviceOptions.map((option) => <option key={option}>{option}</option>)}</select></label>
                   <label className="grid gap-2 text-xs font-black uppercase tracking-[.14em] text-charcoal/52">Fecha preferida<input type="date" className="rounded-2xl border border-charcoal/12 bg-stone/70 px-4 py-4 text-base font-bold normal-case tracking-normal outline-none transition focus:border-gold" /></label>
                 </div>
-                <label className="grid gap-2 text-xs font-black uppercase tracking-[.14em] text-charcoal/52">Mensaje<textarea rows={5} className="resize-none rounded-2xl border border-charcoal/12 bg-stone/70 px-4 py-4 text-base font-bold normal-case tracking-normal outline-none transition focus:border-gold" placeholder="Cuéntanos en qué etapa está tu propiedad y qué objetivo tienes." /></label>
+                <label className="grid gap-2 text-xs font-black uppercase tracking-[.14em] text-charcoal/52">Mensaje<textarea rows={5} className="resize-none rounded-2xl border border-charcoal/12 bg-stone/70 px-4 py-4 text-base font-bold normal-case tracking-normal outline-none transition focus:border-gold" placeholder="Cuéntanos si vas a lanzar, remodelar o mejorar un STR existente, y qué resultado económico buscas." /></label>
                 <button className="group mt-2 inline-flex items-center justify-center gap-4 rounded-full bg-gold px-7 py-4 text-sm font-black text-warm-white shadow-[0_18px_60px_rgba(227,74,46,.24)] transition hover:-translate-y-1 hover:bg-[#b93322]">
-                  Agendar reunión <span className="grid h-8 w-8 place-items-center rounded-full bg-warm-white/18 transition group-hover:translate-x-1">→</span>
+                  Evaluar mi propiedad <span className="grid h-8 w-8 place-items-center rounded-full bg-warm-white/18 transition group-hover:translate-x-1">→</span>
                 </button>
                 <p className="text-xs font-semibold leading-5 text-charcoal/45">Al enviar este formulario confirmas que quieres recibir contenido de Albury Design usando la información de contacto proporcionada.</p>
               </form>
@@ -118,4 +118,6 @@ export default function BookingModal() {
     </div>
   );
 }
+
+
 

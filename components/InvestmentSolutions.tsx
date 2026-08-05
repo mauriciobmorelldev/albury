@@ -5,13 +5,13 @@ import { getGsap } from "@/lib/gsap";
 
 const plans = [
   {
-    title: "Diseño Virtual",
-    intro: "Perfecto para inversionistas que quieren significativamente sus ingresos y destacarse en el mercado sin preocuparse por las decisiones de diseño. Nuestro servicio remoto incluye todos los recursos necesarios para que puedas ordenar e instalar el mobiliario por tu cuenta.",
+    title: "Diseño Virtual STR",
+    intro: "Perfecto para inversionistas que quieren aumentar significativamente sus ingresos y destacarse en el mercado sin preocuparse por las decisiones de diseño. Nuestro servicio remoto incluye todos los recursos necesarios para que puedas ordenar e instalar el mobiliario por tu cuenta.",
     bestFor: "Ideal para inversionistas principiantes en alquileres a corto plazo.",
     features: ["Análisis del público objetivo", "Investigación del mercado STR", "Tableros de diseño", "Planos del espacio", "Lista de compras", "Diseño de mejoras estéticas", "Guía de instalación en 5 semanas"],
   },
   {
-    title: "Diseño y Gestión del Proyecto",
+    title: "Diseño STR + Gestión del Proyecto",
     intro: "Ideal para inversionistas que buscan un diseño competitivo sin involucrarse en el proceso. Nos encargamos de todo: investigación, estrategia, conceptualización, compra de mobiliario, coordinación con contratistas, instalación en persona, ambientación y dirección de sesión fotográfica.",
     bestFor: "Ideal para inversionistas principiantes en alquileres a corto plazo.",
     features: ["Análisis del público objetivo", "Investigación del mercado STR", "Tableros de diseño", "Planos del espacio", "Lista de compras", "Diseño de mejoras estéticas", "Gestión de pedidos", "Coordinación de contratistas", "Supervisión de la instalación del mobiliario", "Decoración y ambientación", "Dirección de sesión fotográfica"],
@@ -43,8 +43,8 @@ export default function InvestmentSolutions() {
     <section id="servicios" ref={rootRef} className="bg-charcoal px-5 py-24 text-warm-white sm:px-8 lg:px-14 lg:py-32">
       <div className="mx-auto max-w-7xl">
         <div className="solution-reveal max-w-5xl">
-          <p className="mb-5 text-xs font-black uppercase tracking-[.22em] text-soft-gold">Servicios</p>
-          <h2 className="text-5xl font-black uppercase leading-[.92] tracking-[-.035em] sm:text-7xl lg:text-8xl">Elegí el nivel de acompañamiento según tu etapa</h2>
+          <p className="mb-5 text-xs font-black uppercase tracking-[.22em] text-soft-gold">Oferta Albury</p>
+          <h2 className="text-5xl font-black uppercase leading-[.92] tracking-[-.035em] sm:text-7xl lg:text-8xl">La oferta: estrategia, diseño y ejecución sin mostrar precios</h2>
         </div>
         <div className="mt-14 grid gap-6 lg:grid-cols-2">
           {plans.map((plan, index) => (
@@ -59,7 +59,7 @@ export default function InvestmentSolutions() {
                   <div key={feature} className="rounded-2xl border border-warm-white/10 bg-charcoal/36 px-4 py-3 text-sm font-bold text-warm-white/82">{feature}</div>
                 ))}
               </div>
-              <button data-booking-trigger className="mt-8 rounded-full bg-gold px-7 py-4 text-sm font-black text-warm-white transition hover:-translate-y-1 hover:bg-[#b93322]">Agendar llamada</button>
+              <button data-booking-trigger className="mt-8 rounded-full bg-gold px-7 py-4 text-sm font-black text-warm-white transition hover:-translate-y-1 hover:bg-[#b93322]">Evaluar mi propiedad</button>
             </article>
           ))}
         </div>
@@ -67,4 +67,5 @@ export default function InvestmentSolutions() {
     </section>
   );
 }
+
 

@@ -1,17 +1,17 @@
-﻿import ChatPopup from "@/components/ChatPopup";
-import FinalCTA from "@/components/FinalCTA";
-import GalleryGrid from "@/components/GalleryGrid";
+﻿import BookingModal from "@/components/BookingModal";
+import ChatPopup from "@/components/ChatPopup";
+import ImmersivePortfolio from "@/components/ImmersivePortfolio";
+import SiteFooter from "@/components/SiteFooter";
 import SiteHeader from "@/components/SiteHeader";
 
 export default function PortfolioPage() {
   return (
-    <main className="min-h-screen overflow-hidden bg-charcoal text-warm-white">
+    <main className="min-h-screen overflow-hidden bg-[#fbf7ef] text-[#0d2931]">
       <SiteHeader />
-      <GalleryGrid />
-      <FinalCTA />
+      <ImmersivePortfolio />
+      <SiteFooter />
       <ChatPopup />
+      <BookingModal />
     </main>
   );
 }
-
-

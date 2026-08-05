@@ -22,7 +22,7 @@ const decisionSteps = [
 const metrics = [
   { label: "Tarifa", prefix: "+15-", suffix: "%", target: 35, copy: "Potencial de ADR en propiedades reposicionadas con mejor percepción de valor." },
   { label: "Ocupación", prefix: "+10-", suffix: "%", target: 20, copy: "Cuando fotos, experiencia y diferenciación mejoran la decisión de reserva." },
-  { label: "Ingreso anual", prefix: "$", suffix: "k+", target: 20, copy: "Potencial adicional en mercados y propiedades con oportunidad real de mejora." },
+  { label: "Ingreso anual", prefix: "$20-", suffix: "k", target: 40, copy: "Potencial adicional al año según mercado, pricing, operación y estado inicial." },
   { label: "Payback", prefix: "2-", suffix: "m", target: 4, copy: "Rango posible cuando tarifa, ocupación y ejecución acompañan la estrategia." },
 ];
 
@@ -31,15 +31,15 @@ const method = [
   ["02", "Concepto estratégico", "Definimos USP, historia visual, estilo y categoría para que la propiedad se entienda rápido."],
   ["03", "Diseño virtual", "Layout, mobiliario, materiales, paleta, lista de compras y prioridades de ejecución."],
   ["04", "Amenidades de alto ROI", "Seleccionamos elementos que ayudan a elevar percepción, experiencia y fotografía."],
-  ["05", "Listing readiness", "Guía final para styling, fotografía y salida al mercado con coherencia comercial."],
+  ["05", "Entrega lista para publicar", "Instalación, styling y dirección final para fotografiar, publicar y competir con claridad."],
 ];
 
 const funnel = [
-  ["01", "Promesa clara", "No decoramos; diseñamos STR para generar más ingresos."],
+  ["01", "Hero", "No decoramos Airbnbs. Diseñamos propiedades STR para generar más ingresos."],
   ["02", "Dolor costoso", "ADR bajo, ocupación media, reviews y tiempo perdido."],
   ["03", "Prueba visual", "Casos, renders, números y narrativa concreta."],
   ["04", "Riesgo menor", "Proceso claro, compras guiadas y decisiones justificadas."],
-  ["05", "Llamada simple", "Diagnóstico gratis para ver oportunidad real."],
+  ["05", "Formulario", "Diagnóstico gratis para filtrar oportunidad, etapa, mercado y potencial de retorno."],
 ];
 
 export default function CommercialFunnel() {
@@ -116,28 +116,14 @@ export default function CommercialFunnel() {
 
   return (
     <div ref={rootRef}>
-      <section id="estrategia" className="bg-warm-white px-5 py-20 text-charcoal sm:px-8 lg:px-14 lg:py-28">
-        <div className="mx-auto grid max-w-7xl gap-7 lg:grid-cols-[1fr_.72fr]">
-          <article className="funnel-reveal rounded-[36px] border border-charcoal/10 bg-stone p-8 shadow-[0_28px_90px_rgba(13,41,49,.08)] sm:p-10 lg:p-12">
-            <p className="mb-5 text-xs font-black uppercase tracking-[.22em] text-gold">La pregunta real del cliente</p>
-            <h2 className="max-w-4xl text-5xl font-black leading-[.9] tracking-[-.045em] sm:text-7xl">¿Por qué invertir en diseño si puedo llenarlo con muebles baratos?</h2>
-            <p className="mt-7 max-w-2xl text-lg font-bold leading-8 text-charcoal/64">Porque amueblar barato puede ahorrar hoy, pero perder miles cada mes en ADR bajo, reseñas flojas, reemplazos y tiempo sin facturar.</p>
-          </article>
-          <article className="funnel-reveal flex min-h-[320px] flex-col justify-end rounded-[36px] bg-gold p-8 text-warm-white shadow-[0_28px_90px_rgba(227,74,46,.22)] sm:p-10 lg:p-12">
-            <p className="text-xs font-black uppercase tracking-[.2em] text-warm-white/70">Respuesta Albury</p>
-            <h3 className="mt-5 text-4xl font-black leading-[.92] tracking-[-.04em] sm:text-6xl">El diseño estratégico no es un gasto. Es un multiplicador.</h3>
-          </article>
-        </div>
-      </section>
-
-      <section id="dolores" className="bg-charcoal px-5 py-20 text-warm-white sm:px-8 lg:px-14 lg:py-28">
+      <section id="estrategia" className="bg-charcoal px-5 py-20 text-warm-white sm:px-8 lg:px-14 lg:py-28">
         <div className="mx-auto max-w-7xl">
           <div className="funnel-reveal grid gap-8 lg:grid-cols-[.9fr_1.1fr] lg:items-end">
             <div>
               <p className="mb-5 text-xs font-black uppercase tracking-[.22em] text-soft-gold">Brechas de rendimiento</p>
-              <h2 className="text-5xl font-black leading-[.92] tracking-[-.04em] sm:text-7xl">Los errores que convierten una propiedad premium en un listing promedio.</h2>
+              <h2 className="text-5xl font-black leading-[.92] tracking-[-.04em] sm:text-7xl">Lo que ocurre cuando una propiedad STR se diseña sin estrategia.</h2>
             </div>
-            <p className="max-w-2xl text-lg font-bold leading-8 text-warm-white/68">El costo no siempre se ve en la factura del diseño. Muchas veces aparece después: menos reservas, menos tarifa y más fricción operativa.</p>
+            <p className="max-w-2xl text-lg font-bold leading-8 text-warm-white/68">El propietario compra muebles, copia otros Airbnbs, diseña según gusto personal y termina siendo uno más. Ahí aparece el verdadero costo: menor ADR, ocupación media y estrés operativo.</p>
           </div>
           <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {pains.map(([number, title, copy]) => (
@@ -148,6 +134,20 @@ export default function CommercialFunnel() {
               </article>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section id="objecion" className="bg-warm-white px-5 py-20 text-charcoal sm:px-8 lg:px-14 lg:py-28">
+        <div className="mx-auto grid max-w-7xl gap-7 lg:grid-cols-[1fr_.72fr]">
+          <article className="funnel-reveal rounded-[36px] border border-charcoal/10 bg-stone p-8 shadow-[0_28px_90px_rgba(13,41,49,.08)] sm:p-10 lg:p-12">
+            <p className="mb-5 text-xs font-black uppercase tracking-[.22em] text-gold">La gran objeción</p>
+            <h2 className="max-w-4xl text-5xl font-black leading-[.9] tracking-[-.045em] sm:text-7xl">¿Por qué invertir en diseño si puedo comprar muebles baratos?</h2>
+            <p className="mt-7 max-w-2xl text-lg font-bold leading-8 text-charcoal/64">La propiedad mal amueblada ahorra hoy, pero puede perder miles cada mes en ADR bajo, guerra de precios, fotos débiles y bajo retorno.</p>
+          </article>
+          <article className="funnel-reveal flex min-h-[320px] flex-col justify-end rounded-[36px] bg-gold p-8 text-warm-white shadow-[0_28px_90px_rgba(227,74,46,.22)] sm:p-10 lg:p-12">
+            <p className="text-xs font-black uppercase tracking-[.2em] text-warm-white/70">Respuesta Albury</p>
+            <h3 className="mt-5 text-4xl font-black leading-[.92] tracking-[-.04em] sm:text-6xl">El diseño estratégico no es un gasto. Es un multiplicador.</h3>
+          </article>
         </div>
       </section>
 
@@ -186,7 +186,7 @@ export default function CommercialFunnel() {
               <p className="mb-5 text-xs font-black uppercase tracking-[.22em] text-gold">ROI visible</p>
               <h2 className="text-5xl font-black leading-[.92] tracking-[-.04em] sm:text-7xl">Lo que una estrategia visual debe mejorar.</h2>
             </div>
-            <p className="max-w-2xl text-lg font-bold leading-8 text-charcoal/64">Estas métricas funcionan como lenguaje comercial del servicio. Se presentan como potencial según mercado, operación y estado inicial.</p>
+            <p className="max-w-2xl text-lg font-bold leading-8 text-charcoal/64">Estas métricas son rangos conservadores para explicar potencial, no promesas fijas. El resultado depende del mercado, la operación, el pricing y la situación inicial de la propiedad.</p>
           </div>
           <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
             {metrics.map((metric) => (
@@ -205,9 +205,9 @@ export default function CommercialFunnel() {
           <div className="funnel-reveal grid gap-8 lg:grid-cols-[.82fr_1.18fr] lg:items-end">
             <div>
               <p className="mb-5 text-xs font-black uppercase tracking-[.22em] text-gold">Metodología Albury</p>
-              <h2 className="text-5xl font-black leading-[.92] tracking-[-.04em] sm:text-7xl">De propiedad vacía a listing premium listo para reservar.</h2>
+              <h2 className="text-5xl font-black leading-[.92] tracking-[-.04em] sm:text-7xl">De propiedad común a activo premium listo para competir.</h2>
             </div>
-            <p className="max-w-2xl text-lg font-bold leading-8 text-charcoal/64">El servicio principal es diseño virtual: una dirección completa para decidir, comprar, ejecutar y fotografiar con menos dudas.</p>
+            <p className="max-w-2xl text-lg font-bold leading-8 text-charcoal/64">Combinamos análisis de mercado, concepto, branding, mobiliario, amenities y experiencia del huésped para justificar un mayor ADR.</p>
           </div>
           <div className="mt-12 grid gap-7 lg:grid-cols-[.72fr_1.28fr]">
             <div className="funnel-reveal overflow-hidden rounded-[34px] bg-charcoal shadow-[0_28px_90px_rgba(13,41,49,.12)] lg:sticky lg:top-28 lg:h-[620px]">
@@ -231,9 +231,9 @@ export default function CommercialFunnel() {
           <div className="funnel-reveal grid gap-8 lg:grid-cols-[.86fr_1.14fr] lg:items-end">
             <div>
               <p className="mb-5 text-xs font-black uppercase tracking-[.22em] text-soft-gold">Prueba visual</p>
-              <h2 className="text-5xl font-black leading-[.92] tracking-[-.04em] sm:text-7xl">Casos que se leen como listings, no como galería decorativa.</h2>
+              <h2 className="text-5xl font-black leading-[.92] tracking-[-.04em] sm:text-7xl">Pruebas que reducen el riesgo percibido.</h2>
             </div>
-            <p className="max-w-2xl text-lg font-bold leading-8 text-warm-white/66">El portfolio funciona como prueba de confianza: enfoque, experiencia, ROI y acceso a proyectos individuales.</p>
+            <p className="max-w-2xl text-lg font-bold leading-8 text-warm-white/66">La prueba social transforma el diseño en evidencia: renders, casos, testimonios y resultados que ayudan a decidir con más confianza.</p>
           </div>
           <div className="mt-10 grid gap-5 lg:grid-cols-2">
             {[
@@ -269,9 +269,9 @@ export default function CommercialFunnel() {
           <div className="funnel-reveal grid gap-8 lg:grid-cols-[.9fr_1.1fr] lg:items-end">
             <div>
               <p className="mb-5 text-xs font-black uppercase tracking-[.22em] text-soft-gold">Paso a paso del lead</p>
-              <h2 className="text-5xl font-black leading-[.92] tracking-[-.04em] sm:text-7xl">Un embudo simple para llevarlo a formulario y llamada.</h2>
+              <h2 className="text-5xl font-black leading-[.92] tracking-[-.04em] sm:text-7xl">El recorrido lógico que prepara la llamada.</h2>
             </div>
-            <p className="max-w-2xl text-lg font-bold leading-8 text-warm-white/66">El lead no necesita leer todo. Necesita entender el valor, ver prueba real y sentir que el siguiente paso es fácil.</p>
+            <p className="max-w-2xl text-lg font-bold leading-8 text-warm-white/66">El objetivo es que el prospecto llegue convencido de que el costo real no es contratar a Albury, sino dejar de capturar el potencial económico de su propiedad.</p>
           </div>
           <div className="mt-10 grid gap-4 md:grid-cols-5">
             {funnel.map(([number, title, copy]) => (
@@ -282,12 +282,14 @@ export default function CommercialFunnel() {
               </article>
             ))}
           </div>
-          <button data-booking-trigger className="funnel-reveal mt-10 rounded-full bg-gold px-8 py-4 text-sm font-black text-warm-white shadow-[0_18px_60px_rgba(227,74,46,.22)] transition hover:-translate-y-1 hover:bg-[#b93322]">Agendar diagnóstico gratis</button>
+          <button data-booking-trigger className="funnel-reveal mt-10 rounded-full bg-gold px-8 py-4 text-sm font-black text-warm-white shadow-[0_18px_60px_rgba(227,74,46,.22)] transition hover:-translate-y-1 hover:bg-[#b93322]">Quiero evaluar mi propiedad</button>
         </div>
       </section>
     </div>
   );
 }
+
+
 
 
 

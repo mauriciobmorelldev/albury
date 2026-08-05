@@ -175,19 +175,19 @@ export default function HeroImmersive() {
 
       <div className="relative z-10 mx-auto grid min-h-[112svh] max-w-7xl gap-8 px-5 pb-20 pt-28 sm:px-8 xl:grid-cols-[minmax(0,680px)_minmax(420px,1fr)] lg:items-center lg:px-10 lg:pt-24">
         <div className="hero-content self-center lg:max-w-[620px] lg:-translate-y-3">
-          <p className="mb-8 inline-flex rounded-full bg-warm-white/15 px-4 py-3 text-[10px] font-black uppercase tracking-[.14em] text-warm-white backdrop-blur-md sm:text-xs">Diseño estratégico para Airbnb rentable</p>
+          <p className="mb-8 inline-flex rounded-full bg-warm-white/15 px-4 py-3 text-[10px] font-black uppercase tracking-[.14em] text-warm-white backdrop-blur-md sm:text-xs">Diseño estratégico para STR rentable</p>
 
           <h1 className="max-w-5xl text-[clamp(3.35rem,6.2vw,6.65rem)] font-black uppercase leading-[.88] tracking-[-.045em] text-warm-white">
-            <span className="hero-word block">Tu Airbnb</span>
-            <span className="hero-word block text-soft-gold">debe vender</span>
-            <span className="hero-word block">la estadía.</span>
+            <span className="hero-word block">No decoramos</span>
+            <span className="hero-word block text-soft-gold">Airbnbs.</span>
+            <span className="hero-word block">Generamos ingresos.</span>
           </h1>
 
           <div className="hero-support mt-8 max-w-xl">
-            <p className="text-lg font-semibold leading-8 text-warm-white/84 sm:text-xl">Si tu propiedad compite por precio, el problema no es la decoración: es la oferta visual. Diseñamos espacios, amenities y narrativa para justificar tarifas más altas y convertir más visitas en reservas.</p>
+            <p className="text-lg font-semibold leading-8 text-warm-white/84 sm:text-xl">Diseñamos propiedades STR para aumentar ADR, ocupación y conversión. La estética es el medio; el producto real es una propiedad capaz de rendir más como activo inmobiliario.</p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <a href="#contacto" className="group inline-flex items-center gap-4 rounded-full border border-gold/70 bg-gold/95 px-5 py-3.5 text-sm font-black text-warm-white shadow-[0_18px_60px_rgba(227,74,46,.26)] backdrop-blur-xl transition hover:-translate-y-1 hover:bg-[#b93322] sm:px-6 sm:py-4">Quiero aumentar reservas <span className="grid h-8 w-8 place-items-center rounded-full bg-warm-white/18 transition group-hover:translate-x-1">→</span></a>
-              <a href="#estrategia" className="inline-flex items-center rounded-full border border-warm-white/24 bg-warm-white/8 px-5 py-3.5 text-sm font-black text-warm-white shadow-[inset_0_1px_0_rgba(255,255,255,.16)] backdrop-blur-xl transition hover:-translate-y-1 hover:bg-warm-white/14 sm:px-6 sm:py-4">Ver cómo funciona</a>
+              <a href="#contacto" className="group inline-flex items-center gap-4 rounded-full border border-gold/70 bg-gold/95 px-5 py-3.5 text-sm font-black text-warm-white shadow-[0_18px_60px_rgba(227,74,46,.26)] backdrop-blur-xl transition hover:-translate-y-1 hover:bg-[#b93322] sm:px-6 sm:py-4">Quiero mejorar mi ROI <span className="grid h-8 w-8 place-items-center rounded-full bg-warm-white/18 transition group-hover:translate-x-1">→</span></a>
+              <a href="#estrategia" className="inline-flex items-center rounded-full border border-warm-white/24 bg-warm-white/8 px-5 py-3.5 text-sm font-black text-warm-white shadow-[inset_0_1px_0_rgba(255,255,255,.16)] backdrop-blur-xl transition hover:-translate-y-1 hover:bg-warm-white/14 sm:px-6 sm:py-4">Ver estrategia</a>
             </div>
           </div>
         </div>
@@ -211,7 +211,7 @@ export default function HeroImmersive() {
                       <>
                         <div className="pointer-events-none absolute inset-4 rounded-[18px] border border-soft-gold/35" />
                         <div className="hero-active-scan pointer-events-none absolute -inset-y-10 left-1/2 w-20 rotate-12 bg-gradient-to-r from-transparent via-soft-gold/28 to-transparent blur-sm" />
-                        <div className="pointer-events-none absolute right-4 top-4 rounded-full border border-soft-gold/40 bg-charcoal/35 px-3 py-2 text-[10px] font-black uppercase tracking-[.16em] text-soft-gold backdrop-blur-md">Prueba visual</div>
+                        <div className="pointer-events-none absolute right-4 top-4 rounded-full border border-soft-gold/40 bg-charcoal/35 px-3 py-2 text-[10px] font-black uppercase tracking-[.16em] text-soft-gold backdrop-blur-md">ROI visual</div>
                       </>
                     ) : null}
                     <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6">
@@ -228,6 +228,7 @@ export default function HeroImmersive() {
     </section>
   );
 }
+
 
 
 
