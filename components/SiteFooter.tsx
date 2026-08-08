@@ -1,6 +1,7 @@
-﻿"use client";
+"use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useLayoutEffect, useRef } from "react";
 import { getGsap } from "@/lib/gsap";
 
@@ -26,7 +27,7 @@ export default function SiteFooter() {
   }, []);
 
   return (
-    <footer ref={rootRef} className="bg-[#fbf7ef] px-5 pb-8 pt-10 text-[#675f58] sm:px-8 lg:px-14">
+    <footer ref={rootRef} className="luxury-footer bg-[#100e0d] px-5 pb-8 pt-10 text-[#b8aea3] sm:px-8 lg:px-14">
       <div className="mx-auto max-w-7xl border-t border-[#236f7e]/16 pt-10">
         <div className="grid gap-10 lg:grid-cols-[1.15fr_.85fr_.75fr]">
           <div className="footer-reveal">
@@ -45,11 +46,10 @@ export default function SiteFooter() {
           <div className="footer-reveal lg:text-right">
             <h3 className="text-xs font-black uppercase tracking-[.2em] text-[#e36559]">Navegación</h3>
             <div className="mt-6 grid gap-3 text-sm font-black uppercase tracking-[.14em] text-[#236f7e]">
-              <a href="/#estrategia" className="hover:text-[#e36559]">Estrategia</a>
-              <a href="/#resultados" className="hover:text-[#e36559]">Resultados</a>
-              <a href="/#servicios" className="hover:text-[#e36559]">Oferta</a>
-              <a href="/portfolio" className="hover:text-[#e36559]">Portfolio</a>
-              <a href="/#faqs" className="hover:text-[#e36559]">FAQs</a>
+              <Link href="/" className="hover:text-[#e36559]">Inicio</Link>
+              <Link href="/servicios" className="hover:text-[#e36559]">Servicios</Link>
+              <Link href="/portfolio" className="hover:text-[#e36559]">Portfolio</Link>
+              <Link href="/resultados" className="hover:text-[#e36559]">Resultados</Link>
             </div>
           </div>
         </div>

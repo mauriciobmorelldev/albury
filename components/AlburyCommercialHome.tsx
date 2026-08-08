@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -10,39 +10,41 @@ const mistakes = [
   {
     title: "Reservas perdidas",
     copy: "Cuando el listing no comunica valor en segundos, el huésped sigue comparando.",
-    image: "/renders/albury/web/bedroom-desk.jpg",
+    image: "/milanote-assets/WhatsApp Image 2026-08-07 at 9.45.05 PM.jpeg",
   },
   {
     title: "Tarifas más bajas",
     copy: "Sin una experiencia visual clara, la propiedad termina compitiendo por precio.",
-    image: "/zip-assets/properties/st-agustin-hero-firepit.webp",
+    image: "/milanote-assets/WhatsApp Image 2026-08-07 at 9.46.49 PM (3).jpeg",
   },
   {
     title: "Costos invisibles",
     copy: "Malas compras, baja estandarización y reseñas débiles cuestan después del lanzamiento.",
-    image: "/zip-assets/properties/sa-figuereta-pool-1.webp",
+    image: "/milanote-assets/WhatsApp Image 2026-08-07 at 9.48.40 PM.jpeg",
     accent: true,
   },
 ];
 
 const listings = [
-  { image: "/zip-assets/properties/st-agustin-hero-firepit.webp", label: "St Agustin", title: "Outdoor Experience", tags: ["Gancho visual", "Experiencia premium"] },
-  { image: "/zip-assets/properties/st-agustin-02.webp", label: "St Agustin", title: "Beach Corner", tags: ["ADR focus", "Listing ready"] },
-  { image: "/zip-assets/properties/sa-figuereta-pool-1.webp", label: "Sa Figuereta", title: "Pool Experience", tags: ["Pool hook", "Luxe feel"] },
-  { image: "/zip-assets/properties/sa-figuereta-83.webp", label: "Sa Figuereta", title: "Living Mediterranean", tags: ["Comodidad", "Foto principal"] },
+  { image: "/milanote-assets/WhatsApp Image 2026-08-07 at 9.45.04 PM.jpeg", label: "Albury Design", title: "Escenas que elevan el ADR", tags: ["Dirección visual", "Experiencia premium"] },
+  { image: "/milanote-assets/WhatsApp Image 2026-08-07 at 9.45.17 PM.jpeg", label: "Albury Design", title: "Identidad con intención", tags: ["Diferenciación", "Listing ready"] },
+  { image: "/milanote-assets/WhatsApp Image 2026-08-07 at 9.46.49 PM (1).jpeg", label: "Albury Design", title: "Hospitalidad memorable", tags: ["Gancho visual", "Conversión"] },
+  { image: "/milanote-assets/WhatsApp Image 2026-08-07 at 9.49.06 PM.jpeg", label: "Albury Design", title: "Diseño que genera valor", tags: ["Rentabilidad", "Luxe feel"] },
 ];
 
 const metrics = [
-  { value: 35, suffix: "%", label: "más percepción de valor", copy: "Rango objetivo de mejora visual y narrativa según mercado." },
-  { value: 20, suffix: "%", label: "más ocupación potencial", copy: "Cuando el diseño reduce fricción y mejora decisión de reserva." },
-  { value: 40, prefix: "$", suffix: "k", label: "impacto anual posible", copy: "Estimación de oportunidad en STR de alto movimiento." },
+  { value: "+15–35%", label: "ADR", copy: "Mayor tarifa diaria promedio al construir una propuesta difícil de comparar por precio." },
+  { value: "+10–20%", label: "Ocupación", copy: "Una experiencia mejor comunicada reduce fricción y fortalece la decisión de reserva." },
+  { value: "USD 20–40k", label: "Ingresos adicionales/año", copy: "Rango de impacto posible para propiedades STR con demanda y operación adecuadas." },
+  { value: "2–4 meses", label: "Recupero estimado", copy: "El diseño se trata como una inversión comercial, no como decoración aislada." },
 ];
 
 const process = [
-  ["Diagnóstico", "Entendemos mercado, huésped objetivo, pricing y competencia antes de diseñar."],
-  ["Narrativa", "Definimos qué debe sentir y recordar el huésped al mirar el listing."],
-  ["Diseño STR", "Priorizamos muebles, amenities, fotos y layout con intención comercial."],
-  ["Instalación", "Ordenamos compras y ubicación para llegar a una propiedad lista para fotografiar."],
+  ["Diagnóstico de rentabilidad", "Analizamos mercado, huésped objetivo, pricing, competencia y desempeño actual."],
+  ["Estrategia", "Definimos el posicionamiento y qué debe sentir y recordar el huésped al mirar el listing."],
+  ["Diseño STR", "Diseñamos layout, mobiliario, amenities y momentos visuales con intención comercial."],
+  ["Implementación", "Centralizamos moodboards, lista de compras, guía de instalación y manuales de ejecución."],
+  ["Lanzamiento y optimización", "Preparamos la propiedad para fotos, publicación y una lectura posterior de resultados."],
 ];
 
 const offers = [
@@ -83,15 +85,15 @@ export function AlburyCommercialHome() {
   useLayoutEffect(() => {
     const { gsap } = getGsap();
     if (!rootRef.current) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     const ctx = gsap.context(() => {
-      gsap.set(".zip-reveal", { autoAlpha: 0, y: 34, filter: "blur(12px)" });
+      gsap.set(".zip-reveal", { autoAlpha: 0, y: 28 });
 
       gsap.utils.toArray<HTMLElement>(".zip-reveal").forEach((item) => {
         gsap.to(item, {
           autoAlpha: 1,
           y: 0,
-          filter: "blur(0px)",
           duration: 0.75,
           ease: "power3.out",
           scrollTrigger: { trigger: item, start: "top 86%", once: true },
@@ -101,8 +103,8 @@ export function AlburyCommercialHome() {
       gsap.fromTo(".hero-bg", { scale: 1.12 }, { scale: 1.02, duration: 1.45, ease: "power3.out" });
       gsap.fromTo(
         ".hero-copy-line",
-        { autoAlpha: 0, y: 46, filter: "blur(16px)" },
-        { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.85, stagger: 0.08, ease: "power3.out", delay: 0.12 },
+        { autoAlpha: 0, y: 34 },
+        { autoAlpha: 1, y: 0, duration: 0.78, stagger: 0.07, ease: "power3.out", delay: 0.08 },
       );
 
       gsap.to(".hero-bg", {
@@ -159,23 +161,22 @@ export function AlburyCommercialHome() {
   }, []);
 
   return (
-    <main ref={rootRef} className="overflow-hidden bg-[#fbf7ef] text-[#1f1b18]">
+    <main ref={rootRef} className="albury-luxury overflow-hidden bg-[#100e0d] text-[#f4eee5]">
       <section id="inicio" className="curve-hero relative min-h-screen overflow-hidden bg-[#257985] text-[#fffaf4]">
         <div className="hero-bg absolute inset-0">
-          <Image src="/zip-assets/properties/st-agustin-hero-firepit.webp" alt="Outdoor experience diseñada para STR" fill priority sizes="100vw" className="object-cover" />
+          <Image src="/milanote-assets/WhatsApp Image 2026-08-07 at 9.45.04 PM.jpeg" alt="Interior premium diseñado por Albury Design" fill priority sizes="100vw" quality={92} className="object-cover" />
         </div>
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(10,35,38,.74),rgba(10,35,38,.38)_52%,rgba(10,35,38,.18)),linear-gradient(0deg,rgba(10,35,38,.28),rgba(10,35,38,.10))]" />
         <div className="relative z-10 mx-auto flex min-h-screen max-w-[1240px] items-center px-5 pt-24 sm:px-8 lg:px-0">
-          <div className="max-w-[820px] pb-20">
+          <div className="hero-content max-w-[820px] pb-20">
             <h1 className="text-[clamp(4.2rem,7.5vw,7.8rem)] font-black leading-[.94] tracking-[-.07em] text-[#fffaf4]">
-              <span className="hero-copy-line block text-[#ef665d]">Multiplica</span>
-              <span className="hero-copy-line block">los ingresos</span>
-              <span className="hero-copy-line block">de tu <span className="text-[#ef665d]">Airbnb</span> con</span>
-              <span className="hero-copy-line block text-[#ef665d]">estrategia.</span>
+              <span className="hero-copy-line block">Diseño estratégico.</span>
+              <span className="hero-copy-line block">Rentabilidad excepcional.</span>
             </h1>
+            <p className="hero-copy-line hero-support">Transformamos propiedades STR en activos premium que generan más ingresos.</p>
             <div className="hero-copy-line mt-9 flex flex-wrap gap-4">
-              <a href="#contacto" className="rounded-full bg-[#ef665d] px-7 py-4 text-sm font-black text-[#fffaf4] shadow-[0_12px_28px_rgba(239,102,93,.28)] transition hover:-translate-y-1 hover:bg-[#c94d43]">Agendar consulta gratis</a>
-              <Link href="/portfolio" className="rounded-full bg-[#fffaf4] px-7 py-4 text-sm font-black text-[#257985] transition hover:-translate-y-1 hover:bg-[#e5e9eb]">Ver portfolio</Link>
+              <a href="#contacto" className="rounded-full bg-[#ef665d] px-7 py-4 text-sm font-black text-[#fffaf4] shadow-[0_12px_28px_rgba(239,102,93,.28)] transition hover:-translate-y-1 hover:bg-[#c94d43]">Solicitá tu diagnóstico de rentabilidad</a>
+              <a href="#resultados" className="rounded-full bg-[#fffaf4] px-7 py-4 text-sm font-black text-[#257985] transition hover:-translate-y-1 hover:bg-[#e5e9eb]">Ver resultados</a>
             </div>
           </div>
         </div>
@@ -188,8 +189,8 @@ export function AlburyCommercialHome() {
         <div className="mx-auto grid max-w-[1180px] gap-6 lg:grid-cols-[1.18fr_.82fr]">
           <article className="zip-reveal rounded-[30px] bg-[#fffaf2] p-8 shadow-[0_22px_60px_rgba(35,111,126,.10)] lg:p-11">
             <p className="mb-4 text-xs font-black uppercase tracking-[.18em] text-[#675f58]">La pregunta real</p>
-            <h2 className="text-[clamp(3.4rem,5.2vw,5.8rem)] font-black leading-[.91] tracking-[-.07em] text-[#257985]">¿Por qué invertir en diseño si puedo llenarlo con muebles baratos?</h2>
-            <p className="mt-7 max-w-3xl text-lg font-semibold leading-8 text-[#675f58]">Porque amueblar barato puede ahorrar hoy, pero perder miles cada mes en ADR bajo, reseñas flojas, reemplazos y tiempo sin facturar.</p>
+            <h2 className="text-[clamp(3.4rem,5.2vw,5.8rem)] font-black leading-[.91] tracking-[-.07em] text-[#257985]">¿Por qué pagar USD 7–12k si puedo comprar muebles baratos?</h2>
+            <p className="mt-7 max-w-3xl text-lg font-semibold leading-8 text-[#675f58]">Porque ahorrar al amueblar puede costarte mucho más en ADR bajo, guerra de precios, reseñas débiles y meses de ingresos perdidos.</p>
           </article>
           <article className="zip-reveal flex min-h-[360px] flex-col justify-end rounded-[30px] bg-[#e9635b] p-8 text-[#fffaf4] shadow-[0_22px_60px_rgba(35,111,126,.10)] lg:p-11">
             <p className="mb-5 text-xs font-black uppercase tracking-[.18em] text-[#ffe9df]">Respuesta Albury</p>
@@ -202,7 +203,7 @@ export function AlburyCommercialHome() {
         <div className="mx-auto max-w-[1180px]">
           <div className="zip-reveal mb-10 grid gap-6 lg:grid-cols-[.9fr_1.1fr] lg:items-end">
             <h2 className="text-5xl font-black leading-[.94] tracking-[-.06em] text-[#dff3f4] sm:text-7xl">Errores costosos</h2>
-            <p className="max-w-2xl text-xl font-black leading-8 text-[#dff3f4]">Sin un diseño estratégico, estás dejando dinero sobre la mesa.</p>
+            <p className="max-w-2xl text-xl font-black leading-8 text-[#dff3f4]">Una propiedad diseñada sin estrategia compite por precio, se vuelve “una más” y pierde capacidad de generar demanda.</p>
           </div>
           <div className="grid gap-6 lg:grid-cols-3">
             {mistakes.map((item) => (
@@ -216,7 +217,7 @@ export function AlburyCommercialHome() {
             ))}
           </div>
           <div className="zip-reveal mt-8 text-center">
-            <a href="#contacto" className="inline-flex rounded-full bg-[#ef665d] px-7 py-4 text-sm font-black text-[#fffaf4] shadow-[0_12px_28px_rgba(239,102,93,.25)] transition hover:-translate-y-1 hover:bg-[#c94d43]">Quiero mejorar mi listing</a>
+            <a href="#contacto" className="inline-flex rounded-full bg-[#ef665d] px-7 py-4 text-sm font-black text-[#fffaf4] shadow-[0_12px_28px_rgba(239,102,93,.25)] transition hover:-translate-y-1 hover:bg-[#c94d43]">Solicitá tu diagnóstico de rentabilidad</a>
           </div>
         </div>
       </section>
@@ -271,7 +272,7 @@ export function AlburyCommercialHome() {
           <div className="mt-12 grid gap-6 lg:grid-cols-3">
             {metrics.map((metric) => (
               <article key={metric.label} className="zip-reveal rounded-[32px] bg-[#fffaf2] p-8 text-center shadow-[0_28px_80px_rgba(13,41,49,.08)]">
-                <div className="text-6xl font-black tracking-[-.06em] text-[#3c8d4d] sm:text-7xl">{metric.prefix}<span className="metric-number" data-value={metric.value}>0</span>{metric.suffix}</div>
+                <div className="text-6xl font-black tracking-[-.06em] text-[#3c8d4d] sm:text-7xl">{metric.value}</div>
                 <h3 className="mt-4 text-2xl font-black leading-tight tracking-[-.03em] text-[#0d2931]">{metric.label}</h3>
                 <p className="mt-3 text-sm font-semibold leading-6 text-[#66777a]">{metric.copy}</p>
               </article>
@@ -324,10 +325,16 @@ export function AlburyCommercialHome() {
         </div>
       </section>
 
-      <section className="bg-[#236f7e] px-5 py-24 text-white sm:px-8 lg:px-14">
-        <div className="zip-reveal mx-auto grid max-w-7xl gap-8 lg:grid-cols-[.75fr_1.25fr]">
-          <p className="text-xs font-black uppercase tracking-[.2em] text-[#bfeef5]">Lo que nuestros clientes dicen</p>
-          <blockquote className="text-4xl font-black uppercase leading-[.95] tracking-[-.045em] sm:text-6xl">“Antes comprábamos muebles. Ahora entendemos qué tiene que comunicar cada rincón para reservar mejor.”</blockquote>
+      <section className="case-study-band bg-[#236f7e] px-5 py-24 text-white sm:px-8 lg:px-14">
+        <div className="zip-reveal mx-auto grid max-w-7xl gap-10 lg:grid-cols-[.58fr_1.42fr] lg:items-end">
+          <div>
+            <p className="text-xs font-black uppercase tracking-[.2em] text-[#bfeef5]">Casos reales</p>
+            <h2 className="mt-5 text-5xl font-black uppercase leading-[.92] tracking-[-.055em] sm:text-7xl">El diseño se ve. El resultado se mide.</h2>
+          </div>
+          <div className="grid gap-px bg-white/20 sm:grid-cols-2">
+            <article className="bg-[#594608] p-8"><strong className="block text-7xl font-black tracking-[-.07em]">+100%</strong><span className="mt-3 block text-sm font-bold uppercase tracking-[.16em] text-white/70">Mejora conseguida</span></article>
+            <article className="bg-[#594608] p-8"><strong className="block text-5xl font-black tracking-[-.06em]">USD 34k → 66k</strong><span className="mt-3 block text-sm font-bold uppercase tracking-[.16em] text-white/70">Ingresos anuales</span></article>
+          </div>
         </div>
       </section>
 
@@ -373,10 +380,10 @@ export function AlburyCommercialHome() {
 
       <section id="contacto" className="relative bg-[#0d2931] px-5 py-24 text-white sm:px-8 lg:px-14 lg:py-32">
         <div className="zip-reveal mx-auto max-w-7xl rounded-[42px] bg-[#e94b35] p-8 shadow-2xl shadow-[#e94b35]/25 lg:p-14">
-          <p className="text-xs font-black uppercase tracking-[.22em] text-white/80">Invitar a actuar</p>
-          <h2 className="mt-6 text-[clamp(4.5rem,14vw,15rem)] font-black uppercase leading-[.75] tracking-[-.08em]">Book</h2>
-          <p className="mt-8 max-w-2xl text-xl font-semibold leading-8 text-white/86">Pedí un diagnóstico gratis y veamos si tu propiedad está comunicando todo el valor que podría vender.</p>
-          <a href="mailto:hello@alburydesign.com" className="mt-8 inline-flex rounded-full bg-white px-8 py-4 text-sm font-black text-[#e94b35] transition hover:-translate-y-1">Diagnóstico Gratis →</a>
+          <p className="text-xs font-black uppercase tracking-[.22em] text-white/80">Captar · Diagnosticar · Escalar</p>
+          <h2 className="mt-6 text-[clamp(3.8rem,10vw,10rem)] font-black uppercase leading-[.78] tracking-[-.08em]">Convirtamos tu propiedad en un activo premium.</h2>
+          <p className="mt-8 max-w-2xl text-xl font-semibold leading-8 text-white/86">Contanos dónde está tu propiedad, cómo opera hoy y qué resultado buscás. Te diremos si el diseño estratégico puede multiplicar su rendimiento.</p>
+          <a href="#contacto" data-booking-trigger className="mt-8 inline-flex rounded-full bg-white px-8 py-4 text-sm font-black text-[#e94b35] transition hover:-translate-y-1">Solicitá tu diagnóstico de rentabilidad →</a>
         </div>
       </section>
     </main>

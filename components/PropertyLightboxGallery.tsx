@@ -1,7 +1,7 @@
-﻿"use client";
+"use client";
 
 import Image from "next/image";
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { getGsap } from "@/lib/gsap";
 
 type GalleryShot = {
@@ -64,6 +64,27 @@ export default function PropertyLightboxGallery({ projectTitle, shots }: Propert
     return () => ctx.revert();
   }, [activeIndex]);
 
+  const openLightbox = (index: number) => setActiveIndex(index);
+
+  const closeLightbox = useCallback(() => {
+    const { gsap } = getGsap();
+    if (!modalRef.current || !imageRef.current) {
+      setActiveIndex(null);
+      return;
+    }
+
+    gsap.to(imageRef.current, { autoAlpha: 0, y: 20, scale: 0.96, filter: "blur(10px)", duration: 0.22, ease: "power2.in" });
+    gsap.to(modalRef.current, { autoAlpha: 0, duration: 0.24, delay: 0.06, ease: "power2.in", onComplete: () => setActiveIndex(null) });
+  }, []);
+
+  const showPrevious = useCallback(() => {
+    setActiveIndex((current) => (current === null ? current : (current - 1 + shots.length) % shots.length));
+  }, [shots.length]);
+
+  const showNext = useCallback(() => {
+    setActiveIndex((current) => (current === null ? current : (current + 1) % shots.length));
+  }, [shots.length]);
+
   useEffect(() => {
     if (activeIndex === null) return;
 
@@ -81,28 +102,7 @@ export default function PropertyLightboxGallery({ projectTitle, shots }: Propert
       document.body.style.overflow = previousOverflow;
       window.removeEventListener("keydown", onKeyDown);
     };
-  }, [activeIndex]);
-
-  const openLightbox = (index: number) => setActiveIndex(index);
-
-  const closeLightbox = () => {
-    const { gsap } = getGsap();
-    if (!modalRef.current || !imageRef.current) {
-      setActiveIndex(null);
-      return;
-    }
-
-    gsap.to(imageRef.current, { autoAlpha: 0, y: 20, scale: 0.96, filter: "blur(10px)", duration: 0.22, ease: "power2.in" });
-    gsap.to(modalRef.current, { autoAlpha: 0, duration: 0.24, delay: 0.06, ease: "power2.in", onComplete: () => setActiveIndex(null) });
-  };
-
-  const showPrevious = () => {
-    setActiveIndex((current) => (current === null ? current : (current - 1 + shots.length) % shots.length));
-  };
-
-  const showNext = () => {
-    setActiveIndex((current) => (current === null ? current : (current + 1) % shots.length));
-  };
+  }, [activeIndex, closeLightbox, showNext, showPrevious]);
 
   return (
     <div ref={rootRef}>

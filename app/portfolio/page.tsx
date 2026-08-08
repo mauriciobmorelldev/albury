@@ -6,7 +6,7 @@ import SiteHeader from "@/components/SiteHeader";
 
 export default function PortfolioPage() {
   return (
-    <main className="min-h-screen overflow-hidden bg-[#fbf7ef] text-[#0d2931]">
+    <main className="site-shell-luxury min-h-screen overflow-hidden bg-[#0f0d0c] text-[#f3ede4]">
       <SiteHeader />
       <ImmersivePortfolio />
       <SiteFooter />

@@ -1,10 +1,18 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
+import PropertyLoader from "@/components/PropertyLoader";
 import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Albury | Recorrido inmobiliario inmersivo",
   description:
     "Home cinematográfica para recorrer una propiedad premium con renders arquitectónicos.",
+  icons: {
+    icon: {
+      url: "/albury-favicon.svg?v=2",
+      type: "image/svg+xml",
+      sizes: "any",
+    },
+  },
 };
 
 export default function RootLayout({
@@ -14,7 +22,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body>{children}</body>
+      <body>
+        <PropertyLoader />
+        {children}
+      </body>
     </html>
   );
 }

@@ -1,14 +1,32 @@
-﻿"use client";
+"use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { useLayoutEffect, useRef } from "react";
+import PropertyPerformanceCard from "@/components/PropertyPerformanceCard";
 import { alburyProjects } from "@/data/alburyProjects";
 import { getGsap } from "@/lib/gsap";
 
-const allShots = alburyProjects.flatMap((project) =>
-  project.gallery.map((shot) => ({ ...shot, project: project.title, slug: project.slug })),
-);
+const milanoteShots = [
+  ["9.45.04 PM", "Dirección visual"], ["9.45.05 PM", "Identidad del espacio"],
+  ["9.45.17 PM", "Escena principal"], ["9.45.17 PM (1)", "Detalle editorial"],
+  ["9.46.48 PM", "Experiencia premium"], ["9.46.49 PM (2)", "Diseño con intención"],
+  ["9.48.40 PM", "Atmósfera memorable"], ["9.49.06 PM (1)", "Valor percibido"],
+].map(([time, label]) => ({
+  src: `/milanote-assets/WhatsApp Image 2026-08-07 at ${time}.jpeg`,
+  alt: `${label} por Albury Design`, label, project: "Albury Design", slug: "", wide: true,
+}));
+
+const allShots = [
+  ...milanoteShots,
+  ...alburyProjects.flatMap((project) => project.gallery.map((shot) => ({ ...shot, project: project.title, slug: project.slug }))),
+];
+
+const impactMetrics = [
+  { value: "+15–35%", label: "ADR", copy: "Mayor tarifa diaria promedio al construir una propuesta difícil de comparar por precio." },
+  { value: "+10–20%", label: "Ocupación", copy: "Una experiencia mejor comunicada reduce fricción y fortalece la decisión de reserva." },
+  { value: "USD 20–40k", label: "Ingresos adicionales/año", copy: "Rango de impacto posible para propiedades STR con demanda y operación adecuadas." },
+  { value: "2–4 meses", label: "Recupero estimado", copy: "El diseño se trata como una inversión comercial, no como decoración aislada." },
+];
 
 export default function ImmersivePortfolio() {
   const rootRef = useRef<HTMLDivElement>(null);
@@ -18,12 +36,11 @@ export default function ImmersivePortfolio() {
     if (!rootRef.current) return;
 
     const ctx = gsap.context(() => {
-      gsap.set(".portfolio-reveal", { autoAlpha: 0, y: 42, filter: "blur(14px)" });
+      gsap.set(".portfolio-reveal", { autoAlpha: 0, y: 30 });
       gsap.utils.toArray<HTMLElement>(".portfolio-reveal").forEach((item) => {
         gsap.to(item, {
           autoAlpha: 1,
           y: 0,
-          filter: "blur(0px)",
           duration: 0.85,
           ease: "power3.out",
           scrollTrigger: { trigger: item, start: "top 84%", once: true },
@@ -74,57 +91,43 @@ export default function ImmersivePortfolio() {
         gsap.to(galleryTrack, {
           x: () => -distance(),
           ease: "none",
+          force3D: true,
           scrollTrigger: {
             trigger: galleryWrap,
             start: "top top",
             end: () => `+=${distance()}`,
-            scrub: 0.7,
+            scrub: 0.45,
             pin: true,
+            anticipatePin: 1,
             invalidateOnRefresh: true,
           },
         });
       }
 
-      gsap.utils.toArray<HTMLElement>(".gallery-shot").forEach((shot, index) => {
-        gsap.to(shot, {
-          yPercent: index % 2 ? -8 : 8,
-          ease: "none",
-          scrollTrigger: { trigger: shot, start: "top bottom", end: "bottom top", scrub: true },
-        });
-      });
     }, rootRef);
 
     return () => ctx.revert();
   }, []);
 
   return (
-    <main ref={rootRef} className="overflow-hidden bg-[#fbf7ef] text-[#0d2931]">
-      <section className="relative min-h-screen overflow-hidden bg-[#0d2931] px-5 pb-16 pt-32 text-white sm:px-8 lg:px-14">
-        <div className="portfolio-hero-image absolute inset-0">
-          <Image src="/zip-assets/properties/sa-figuereta-pool-1.webp" alt="Portfolio Albury Design" fill priority sizes="100vw" className="object-cover" />
+    <main ref={rootRef} className="portfolio-luxury overflow-hidden bg-[#0f0d0c] text-[#f3ede4]">
+      <section className="route-hero portfolio-route-hero">
+        <div className="route-hero-image portfolio-hero-image">
+          <Image src="/milanote-assets/WhatsApp Image 2026-08-07 at 9.48.40 PM.jpeg" alt="Portfolio Albury Design" fill priority sizes="100vw" quality={92} className="object-cover" />
         </div>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_72%_35%,rgba(227,101,89,.42),transparent_25%),linear-gradient(90deg,rgba(13,41,49,.98),rgba(13,41,49,.72)_48%,rgba(13,41,49,.30))]" />
-        <div className="relative z-10 mx-auto grid min-h-[calc(100vh-8rem)] max-w-7xl items-end gap-10 lg:grid-cols-[1.05fr_.95fr]">
-          <div className="portfolio-reveal pb-12">
-            <p className="mb-5 inline-flex rounded-full bg-white/14 px-5 py-3 text-xs font-black uppercase tracking-[.2em] text-white/85 backdrop-blur-xl">Portfolio Albury Design</p>
-            <h1 className="text-[clamp(4.4rem,9vw,10rem)] font-black uppercase leading-[.82] tracking-[-.07em]">Proyectos que funcionan como listings deseables.</h1>
-            <p className="mt-7 max-w-2xl text-lg font-semibold leading-8 text-white/76">Cada propiedad se presenta como una experiencia completa: galería, momentos clave, decisiones de diseño y lectura de ROI para entender por qué el espacio vende.</p>
-          </div>
-          <aside className="portfolio-reveal mb-12 rounded-[34px] border border-white/16 bg-white/12 p-7 shadow-2xl shadow-black/30 backdrop-blur-2xl">
-            <p className="text-xs font-black uppercase tracking-[.2em] text-[#dff2f5]">Diseño pensado para conversión</p>
-            <div className="mt-8 grid gap-4 sm:grid-cols-2">
-              <div className="rounded-3xl bg-white/12 p-5"><span className="text-xs font-black uppercase tracking-[.16em] text-white/60">Proyectos</span><strong className="mt-2 block text-5xl font-black">02</strong></div>
-              <div className="rounded-3xl bg-white/12 p-5"><span className="text-xs font-black uppercase tracking-[.16em] text-white/60">Foco</span><strong className="mt-2 block text-2xl font-black">ROI + experiencia</strong></div>
-            </div>
-          </aside>
+        <div className="route-hero-shade" />
+        <div className="route-hero-content portfolio-reveal">
+          <h1>Proyectos que funcionan como listings deseables.</h1>
+          <p>Cada propiedad se presenta como una experiencia completa: galería, decisiones de diseño y lectura de ROI para entender por qué el espacio vende.</p>
+          <a href="#proyectos" className="editorial-button">Explorar proyectos</a>
         </div>
       </section>
 
       <section className="bg-[#fffaf2] px-5 py-24 sm:px-8 lg:px-14 lg:py-32">
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[.76fr_1.24fr]">
           <div className="portfolio-reveal">
-            <p className="mb-4 text-xs font-black uppercase tracking-[.22em] text-[#e36559]">Galería de transición</p>
-            <h2 className="text-5xl font-black leading-[.92] tracking-[-.055em] text-[#0d2931] sm:text-7xl">Detalles que hacen que un anuncio se sienta cuidado.</h2>
+            <p className="mb-4 text-xs font-black uppercase tracking-[.22em] text-[#e36559]">Portfolio seleccionado</p>
+            <h2 className="text-5xl font-black leading-[.92] tracking-[-.055em] text-[#0d2931] sm:text-7xl">Interiores que convierten una estadía en una experiencia deseable.</h2>
           </div>
           <div className="grid auto-rows-[220px] grid-cols-2 gap-4 lg:auto-rows-[260px] lg:grid-cols-3">
             {allShots.slice(0, 6).map((shot, index) => (
@@ -149,32 +152,15 @@ export default function ImmersivePortfolio() {
           </div>
           <div className="grid gap-8 lg:grid-cols-2">
             {alburyProjects.map((project) => (
-              <Link key={project.slug} href={`/portfolio/${project.slug}`} className="project-card group block [perspective:1200px]">
-                <article className={`overflow-hidden rounded-[42px] bg-gradient-to-br ${project.palette} p-4 shadow-[0_34px_90px_rgba(13,41,49,.16)] transition duration-500 group-hover:-translate-y-2`}>
-                  <div className="relative min-h-[420px] overflow-hidden rounded-[32px] bg-[#0d2931]">
-                    <Image src={project.heroImage} alt={project.title} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover transition duration-700 group-hover:scale-105" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0d2931]/94 via-[#0d2931]/18 to-transparent" />
-                    <div className="absolute bottom-7 left-7 right-7 text-white">
-                      <p className="text-xs font-black uppercase tracking-[.2em] text-[#dff2f5]">{project.eyebrow}</p>
-                      <h3 className="mt-3 text-5xl font-black uppercase leading-[.86] tracking-[-.06em]">{project.title}</h3>
-                    </div>
-                  </div>
-                  <div className="grid gap-4 p-5 sm:grid-cols-2">
-                    {project.metrics.map((metric) => (
-                      <div key={metric.label} className="rounded-[24px] bg-white/72 p-5 backdrop-blur-xl">
-                        <span className="text-xs font-black uppercase tracking-[.16em] text-[#52656b]">{metric.label}</span>
-                        <strong className="mt-2 block text-4xl font-black tracking-[-.06em] text-[#0d2931]">{metric.prefix}<span className="project-metric-number" data-value={metric.value}>0</span>{metric.suffix}</strong>
-                      </div>
-                    ))}
-                  </div>
-                </article>
-              </Link>
+              <div key={project.slug} className="project-card">
+                <PropertyPerformanceCard project={project} href={`/portfolio/${project.slug}`} />
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="immersive-gallery-wrap bg-[#0d2931] py-24 text-white lg:h-screen lg:py-0">
+      <section id="impacto" className="immersive-gallery-wrap bg-[#0d2931] py-24 text-white lg:h-screen lg:py-0">
         <div className="flex h-full items-center">
           <div className="immersive-track flex gap-5 px-5 sm:px-8 lg:px-14">
             <div className="portfolio-reveal flex w-[78vw] shrink-0 flex-col justify-center lg:w-[40vw]">
@@ -182,15 +168,27 @@ export default function ImmersivePortfolio() {
               <h2 className="text-5xl font-black uppercase leading-[.88] tracking-[-.06em] sm:text-7xl">La galería no muestra fotos. Construye decisión.</h2>
               <p className="mt-6 max-w-xl text-lg font-semibold leading-8 text-white/70">Scroll horizontal con escenas amplias, etiquetas comerciales y profundidad visual para que cada proyecto se sienta como una visita.</p>
             </div>
-            {allShots.map((shot, index) => (
-              <article key={`${shot.src}-immersive-${index}`} className={`gallery-shot relative h-[72vh] w-[76vw] shrink-0 overflow-hidden rounded-[38px] bg-white/8 shadow-2xl shadow-black/30 lg:w-[42vw] ${shot.wide ? "lg:w-[56vw]" : ""}`}>
-                <Image src={shot.src} alt={shot.alt} fill sizes="(max-width: 900px) 76vw, 56vw" className="object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0d2931]/86 via-transparent to-transparent" />
-                <div className="absolute bottom-7 left-7 right-7">
-                  <p className="text-[10px] font-black uppercase tracking-[.24em] text-[#dff2f5]">{shot.project}</p>
-                  <h3 className="mt-2 text-4xl font-black uppercase tracking-[-.05em]">{shot.label}</h3>
-                </div>
-              </article>
+            {allShots.slice(0, 8).map((shot, index) => (
+              <div key={`${shot.src}-rail-${index}`} className="contents">
+                <article className={`gallery-shot relative h-[68vh] w-[78vw] shrink-0 overflow-hidden bg-white/8 shadow-2xl shadow-black/30 lg:w-[48vw] ${shot.wide ? "lg:w-[54vw]" : ""}`}>
+                  <Image src={shot.src} alt={shot.alt} fill sizes="(max-width: 900px) 78vw, 54vw" className="object-cover" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/82 via-transparent to-transparent" />
+                  <div className="absolute bottom-7 left-7 right-7">
+                    <p className="text-[10px] font-black uppercase tracking-[.24em] text-[#e5dece]">{shot.project}</p>
+                    <h3 className="mt-2 text-[clamp(1.8rem,3vw,3.3rem)] font-bold uppercase tracking-[-.045em]">{shot.label}</h3>
+                  </div>
+                </article>
+                {index < impactMetrics.length ? (
+                  <article className="portfolio-impact-card flex h-[68vh] w-[78vw] shrink-0 flex-col justify-between border border-[#e5dece]/22 bg-[#17150f] p-7 sm:p-10 lg:w-[32vw]">
+                    <p className="text-[10px] font-bold uppercase tracking-[.22em] text-[#bca866]">Impacto estimado 0{index + 1}</p>
+                    <div>
+                      <strong>{impactMetrics[index].value}</strong>
+                      <h3>{impactMetrics[index].label}</h3>
+                      <p>{impactMetrics[index].copy}</p>
+                    </div>
+                  </article>
+                ) : null}
+              </div>
             ))}
           </div>
         </div>
