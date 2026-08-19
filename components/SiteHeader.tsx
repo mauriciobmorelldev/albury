@@ -6,12 +6,13 @@ import { useEffect, useState } from "react";
 const navItems = [
   { label: "Inicio", href: "/" },
   { label: "Servicios", href: "/servicios" },
+  { label: "About us", href: "/about-us" },
   { label: "Portfolio", href: "/portfolio" },
   { label: "Resultados", href: "/resultados" },
 ];
 
-const leftNavItems = navItems.slice(0, 2);
-const rightNavItems = navItems.slice(2);
+const leftNavItems = navItems.slice(0, 3);
+const rightNavItems = navItems.slice(3);
 
 export default function SiteHeader() {
   const [open, setOpen] = useState(false);

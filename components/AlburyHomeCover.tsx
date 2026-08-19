@@ -23,7 +23,7 @@ export default function AlburyHomeCover() {
     <main ref={rootRef} className="home-cover bg-[#100f0c] text-[#e5dece]">
       <section id="inicio" className="cover-hero relative min-h-[100svh] overflow-hidden">
         <div className="cover-image absolute inset-0">
-          <Image src="/milanote-assets/WhatsApp Image 2026-08-07 at 9.45.04 PM.jpeg" alt="Interior premium diseñado por Albury Design" fill priority quality={92} sizes="100vw" className="object-cover" />
+          <Image src="/milanote-assets/WhatsApp Image 2026-08-07 at 9.45.05 PM.jpeg" alt="Interior premium diseñado por Albury Design" fill priority quality={92} sizes="100vw" className="object-cover" />
         </div>
         <div className="cover-shade absolute inset-0" />
         <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-[1320px] items-center justify-center px-5 pt-20 text-center sm:px-8">
@@ -32,7 +32,7 @@ export default function AlburyHomeCover() {
             <p className="cover-reveal mx-auto mt-6 max-w-2xl text-[clamp(1rem,1.3vw,1.18rem)] leading-8 text-white/78">Transformamos propiedades STR en activos premium que generan más ingresos.</p>
             <div className="cover-reveal mt-9 flex flex-wrap justify-center gap-3">
               <a href="#contacto" data-booking-trigger className="editorial-button editorial-button-primary">Solicitá tu diagnóstico</a>
-              <Link href="/portfolio" className="editorial-button">Ver portfolio</Link>
+              <Link href="/resultados" className="editorial-button">Ver resultados</Link>
             </div>
           </div>
         </div>

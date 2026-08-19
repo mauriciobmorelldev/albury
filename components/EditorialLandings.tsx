@@ -2,6 +2,9 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import BeforeAfterShowcase from "@/components/BeforeAfterShowcase";
+import CostlyErrors from "@/components/CostlyErrors";
+import MideAccordion from "@/components/MideAccordion";
 import { useLayoutEffect, useRef } from "react";
 import { getGsap } from "@/lib/gsap";
 
@@ -45,8 +48,8 @@ export function ServicesLanding() {
         </div>
         <div className="route-hero-shade" />
         <div className="route-hero-content landing-reveal">
-          <h1>Diseño que toma decisiones antes de comprar muebles.</h1>
-          <p>Albury convierte el interiorismo en una herramienta de posicionamiento, conversión y rentabilidad para propiedades STR.</p>
+          <h1>Diseño basado en estrategia.<br />Diseñado para el rendimiento.</h1>
+          <p>Creamos espacios que se ven increíbles y, al mismo tiempo, están preparados para maximizar percepción, conversión y retorno.</p>
         </div>
       </section>
 
@@ -66,8 +69,8 @@ export function ServicesLanding() {
       <section className="px-5 py-20 sm:px-8 lg:px-14 lg:py-28">
         <div className="mx-auto max-w-7xl">
           <div className="landing-reveal grid gap-8 lg:grid-cols-[.65fr_1.35fr]">
-            <p className="section-label">Método Albury</p>
-            <h2 className="section-title">Cinco etapas. Una propiedad lista para competir por valor.</h2>
+            <p className="section-label">De la estrategia al lanzamiento</p>
+            <h2 className="section-title">Un proceso fluido basado en tus objetivos de inversión.</h2>
           </div>
           <div className="mt-14 border-t border-[#e5dece]/20">
             {process.map(([title, copy], index) => (
@@ -113,18 +116,24 @@ export function ResultsLanding() {
           <p>Casos y rangos que muestran cómo una propiedad deja de competir por precio y empieza a construir valor.</p>
         </div>
       </section>
-      <section className="px-5 py-20 sm:px-8 lg:px-14 lg:py-28">
-        <div className="mx-auto max-w-7xl border-t border-[#e5dece]/20">
-          <article className="landing-reveal result-row grid gap-8 border-b border-[#e5dece]/20 py-12 lg:grid-cols-[.8fr_1.2fr] lg:items-center">
-            <div><span>Caso real 01</span><strong>+100%</strong><p>Mejora conseguida</p></div>
-            <Image src="/milanote-assets/WhatsApp Image 2026-08-07 at 9.46.49 PM (3).jpeg" alt="Caso Albury Design" width={2560} height={1706} className="aspect-[16/9] w-full object-cover" />
-          </article>
-          <article className="landing-reveal result-row grid gap-8 border-b border-[#e5dece]/20 py-12 lg:grid-cols-[1.2fr_.8fr] lg:items-center">
-            <Image src="/milanote-assets/WhatsApp Image 2026-08-07 at 9.49.06 PM.jpeg" alt="Caso de rentabilidad Albury Design" width={2560} height={1706} className="aspect-[16/9] w-full object-cover" />
-            <div><span>Caso real 02</span><strong>USD 34k → 66k</strong><p>Ingresos anuales</p></div>
-          </article>
+      <BeforeAfterShowcase />
+      <CostlyErrors />
+      <section className="results-strategy-intro px-5 py-20 sm:px-8 lg:px-14 lg:py-28">
+        <div className="landing-reveal mx-auto max-w-7xl">
+          <div className="results-strategy-kicker">
+            <p className="section-label">Diseño basado en estrategia</p>
+            <span>+30–50%</span>
+          </div>
+          <div className="results-strategy-copy">
+            <h2 className="section-title">Diseñado para el rendimiento.</h2>
+            <div>
+              <p>En Albury Design buscamos más que un diseño atractivo. Creamos espacios que se ven increíbles y, al mismo tiempo, están preparados para maximizar el retorno de inversión.</p>
+              <p>Todo bajo la metodología M.I.D.E.</p>
+            </div>
+          </div>
         </div>
       </section>
+      <MideAccordion />
       <section className="px-5 py-24 sm:px-8 lg:px-14 lg:py-32">
         <div className="landing-reveal mx-auto grid max-w-7xl gap-10 border-y border-[#e5dece]/20 py-14 lg:grid-cols-[1fr_.7fr] lg:items-end">
           <h2 className="section-title">Explorá proyectos, escenas y métricas en un mismo recorrido.</h2>

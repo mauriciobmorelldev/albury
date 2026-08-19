@@ -1,4 +1,4 @@
-﻿export type ProjectMetric = {
+export type ProjectMetric = {
   label: string;
   value: number;
   prefix?: string;
@@ -87,6 +87,37 @@ export const alburyProjects: AlburyProject[] = [
       { src: "/zip-assets/properties/st-agustin-02.webp", alt: "Amenity exterior de St Agustin", label: "Experience" },
       { src: "/zip-assets/properties/st-agustin-03.webp", alt: "Detalle de St Agustin", label: "Listing scene", wide: true },
       { src: "/zip-assets/properties/st-agustin-04.webp", alt: "Detalle final de St Agustin", label: "Ready to book" },
+    ],
+  },
+  {
+    slug: "hot-springs-str",
+    title: "Hot Springs STR",
+    location: "Hot Springs, Arkansas",
+    eyebrow: "Naturaleza · amenidades · escapada premium",
+    headline: "Una estadía diseñada para vender el destino antes de mostrar cada habitación.",
+    summary:
+      "Hot Springs STR organiza la experiencia alrededor del paisaje, las amenidades exteriores y los momentos compartidos. La propiedad comunica descanso, conexión y valor desde la primera imagen del listing.",
+    roiFocus: "Experiencia exterior",
+    heroImage: "/milanote-assets/WhatsApp Image 2026-08-07 at 9.48.41 PM (1).jpeg",
+    palette: "from-[#5b4a2d]/45 via-[#f5efe3] to-[#9cae83]/45",
+    metrics: [
+      { label: "Ingresos anuales", value: 250.8, prefix: "$", suffix: "K" },
+      { label: "Ocupación", value: 69, suffix: "%" },
+      { label: "ADR objetivo", value: 996, prefix: "$" },
+      { label: "Rating objetivo", value: 4.98, suffix: "/5" },
+    ],
+    strategy: [
+      "Paisaje y amenidades como primer argumento de reserva.",
+      "Escenas exteriores que extienden la experiencia más allá de la casa.",
+      "Secuencia visual enfocada en descanso, reunión y escapada.",
+      "Dirección de fotografía preparada para comunicar valor premium.",
+    ],
+    gallery: [
+      { src: "/milanote-assets/WhatsApp Image 2026-08-07 at 9.48.41 PM (1).jpeg", alt: "Exterior premium de Hot Springs STR", label: "Destination hook", wide: true },
+      { src: "/milanote-assets/WhatsApp Image 2026-08-07 at 9.48.39 PM.jpeg", alt: "Muelle y lago de Hot Springs STR", label: "Lake experience" },
+      { src: "/milanote-assets/WhatsApp Image 2026-08-07 at 9.48.40 PM.jpeg", alt: "Pérgola exterior de Hot Springs STR", label: "Outdoor pause" },
+      { src: "/milanote-assets/WhatsApp Image 2026-08-07 at 9.48.41 PM.jpeg", alt: "Llegada a Hot Springs STR", label: "Arrival story", wide: true },
+      { src: "/milanote-assets/WhatsApp Image 2026-08-07 at 9.49.06 PM (1).jpeg", alt: "Amenity de Hot Springs STR", label: "Premium amenity" },
     ],
   },
 ];

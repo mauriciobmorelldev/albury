@@ -48,6 +48,7 @@ export default function SiteFooter() {
             <div className="mt-6 grid gap-3 text-sm font-black uppercase tracking-[.14em] text-[#236f7e]">
               <Link href="/" className="hover:text-[#e36559]">Inicio</Link>
               <Link href="/servicios" className="hover:text-[#e36559]">Servicios</Link>
+              <Link href="/about-us" className="hover:text-[#e36559]">About us</Link>
               <Link href="/portfolio" className="hover:text-[#e36559]">Portfolio</Link>
               <Link href="/resultados" className="hover:text-[#e36559]">Resultados</Link>
             </div>

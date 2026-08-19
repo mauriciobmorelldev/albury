@@ -150,7 +150,7 @@ export default function ImmersivePortfolio() {
             <h2 className="text-5xl font-black leading-[.92] tracking-[-.055em] text-[#0d2931] sm:text-7xl">Entrá a cada proyecto como si fuera un listing.</h2>
             <p className="max-w-3xl text-lg font-semibold leading-8 text-[#52656b]">Las fichas incluyen galería, contexto de diseño y métricas de ROI orientativas. El objetivo: que la prueba visual venda antes de la llamada.</p>
           </div>
-          <div className="grid gap-8 lg:grid-cols-2">
+          <div className="grid gap-7 lg:grid-cols-2 xl:grid-cols-3">
             {alburyProjects.map((project) => (
               <div key={project.slug} className="project-card">
                 <PropertyPerformanceCard project={project} href={`/portfolio/${project.slug}`} />
