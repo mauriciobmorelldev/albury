@@ -2,11 +2,12 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useLayoutEffect, useRef } from "react";
+import { useEffect, useLayoutEffect, useRef } from "react";
 import { getGsap } from "@/lib/gsap";
 
 export default function SiteFooter() {
-  const rootRef = useRef<HTMLElement>(null);
+  const rootRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   useLayoutEffect(() => {
     const root = rootRef.current;
@@ -26,8 +27,49 @@ export default function SiteFooter() {
     return () => ctx.revert();
   }, []);
 
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reducedMotion) return;
+    const loadVideo = () => {
+      const source = video.dataset.src;
+      if (!source) return;
+      video.src = source;
+      delete video.dataset.src;
+      video.load();
+      void video.play().catch(() => undefined);
+    };
+    if (!("IntersectionObserver" in window)) {
+      loadVideo();
+      return;
+    }
+    const observer = new IntersectionObserver(([entry]) => {
+      if (!entry?.isIntersecting) return;
+      loadVideo();
+      observer.disconnect();
+    }, { rootMargin: "320px 0px" });
+    observer.observe(video);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <footer ref={rootRef} className="luxury-footer bg-[#100e0d] px-5 pb-8 pt-10 text-[#b8aea3] sm:px-8 lg:px-14">
+    <div ref={rootRef} className="site-footer-stack">
+      <section className="global-booking-cta" aria-labelledby="global-booking-title">
+        <div className="global-booking-media">
+          <video ref={videoRef} data-src="/videos/albury-booking-horizontal.mp4?v=1" muted loop playsInline preload="none" poster="/milanote-assets/WhatsApp Image 2026-08-07 at 9.48.41 PM.jpeg" aria-hidden="true" tabIndex={-1} />
+          <div className="global-booking-shade" />
+          <p className="footer-reveal">Diseño estratégico · STR</p>
+        </div>
+        <div className="global-booking-copy footer-reveal">
+          <p className="section-label">¿Listo para comenzar?</p>
+          <h2 id="global-booking-title">Creamos una propiedad que los huéspedes quieran reservar.</h2>
+          <p>Contanos sobre tu propiedad, tus objetivos y el momento del proyecto. En una primera llamada evaluamos el potencial y el mejor próximo paso.</p>
+          <button type="button" data-booking-trigger className="editorial-button editorial-button-primary">Agendar llamada</button>
+        </div>
+      </section>
+
+      <footer className="luxury-footer bg-[#100e0d] px-5 pb-8 pt-10 text-[#b8aea3] sm:px-8 lg:px-14">
       <div className="mx-auto max-w-7xl border-t border-[#236f7e]/16 pt-10">
         <div className="grid gap-10 lg:grid-cols-[1.15fr_.85fr_.75fr]">
           <div className="footer-reveal">
@@ -60,5 +102,6 @@ export default function SiteFooter() {
         </div>
       </div>
     </footer>
+    </div>
   );
 }
