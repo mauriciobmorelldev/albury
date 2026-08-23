@@ -81,7 +81,7 @@ export default function SiteFooter() {
             <dl className="mt-6 grid gap-4 text-sm font-bold text-[#675f58]">
               <div><dt className="text-[#236f7e]">Office:</dt><dd>Miami, FL, USA</dd></div>
               <div><dt className="text-[#236f7e]">WhatsApp:</dt><dd><a className="hover:text-[#e36559]" href="tel:+17868462880">+1 (786) 846-2880</a></dd></div>
-              <div><dt className="text-[#236f7e]">Mail:</dt><dd><a className="hover:text-[#e36559]" href="mailto:jgenovard@alburydesign.com">jgenovard@alburydesign.com</a></dd></div>
+              <div><dt className="text-[#236f7e]">Mail:</dt><dd><a className="hover:text-[#e36559]" href="mailto:admin@alburydesign.com">admin@alburydesign.com</a></dd></div>
               <div><dt className="text-[#236f7e]">Site:</dt><dd><a className="hover:text-[#e36559]" href="https://alburydesign.com/">alburydesign.com</a></dd></div>
             </dl>
           </div>

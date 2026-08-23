@@ -5,7 +5,6 @@ import Link from "next/link";
 import BeforeAfterShowcase from "@/components/BeforeAfterShowcase";
 import CostlyErrors from "@/components/CostlyErrors";
 import InvestmentSolutions from "@/components/InvestmentSolutions";
-import LaunchStrategyCards from "@/components/LaunchStrategyCards";
 import MideAccordion from "@/components/MideAccordion";
 import ServicesFrequentlyAskedQuestions from "@/components/ServicesFrequentlyAskedQuestions";
 import { useLayoutEffect, useRef } from "react";
@@ -113,7 +112,6 @@ export function ResultsLanding() {
         </div>
       </section>
       <MideAccordion />
-      <LaunchStrategyCards />
       <section className="px-5 py-24 sm:px-8 lg:px-14 lg:py-32">
         <div className="landing-reveal mx-auto grid max-w-7xl gap-10 border-y border-[#e5dece]/20 py-14 lg:grid-cols-[1fr_.7fr] lg:items-end">
           <h2 className="section-title">Explorá proyectos, escenas y métricas en un mismo recorrido.</h2>

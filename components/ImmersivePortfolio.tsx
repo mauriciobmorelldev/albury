@@ -42,34 +42,13 @@ export default function ImmersivePortfolio() {
         </div>
       </section>
 
-      <section className="bg-[#fffaf2] px-5 py-24 sm:px-8 lg:px-14 lg:py-32">
-        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[.76fr_1.24fr]">
-          <div className="portfolio-reveal">
-            <p className="mb-4 text-xs font-black uppercase tracking-[.22em] text-[#e36559]">Portfolio seleccionado</p>
-            <h2 className="text-[clamp(2.35rem,4.2vw,4.6rem)] font-black leading-[.94] tracking-[-.05em] text-[#0d2931]">Interiores que convierten una estadía en una experiencia deseable.</h2>
-          </div>
-          <div className="grid auto-rows-[220px] grid-cols-2 gap-4 lg:auto-rows-[260px] lg:grid-cols-3">
-            {allShots.slice(0, 6).map((shot, index) => (
-              <article key={`${shot.src}-${index}`} className={`portfolio-reveal group relative overflow-hidden rounded-[30px] bg-[#0d2931] ${index === 0 || index === 3 ? "col-span-2 row-span-2" : ""}`}>
-                <Image src={shot.src} alt={shot.alt} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover transition duration-700 group-hover:scale-105" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0d2931]/82 via-transparent to-transparent opacity-80" />
-                <div className="absolute bottom-5 left-5 right-5 text-white">
-                  <p className="text-[10px] font-black uppercase tracking-[.2em] text-[#dff2f5]">{shot.project}</p>
-                  <h3 className="mt-1 text-2xl font-black uppercase tracking-[-.04em]">{shot.label}</h3>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <section id="proyectos" className="bg-[#e5e9eb] px-5 py-24 sm:px-8 lg:px-14 lg:py-32">
         <div className="mx-auto max-w-7xl">
           <div className="portfolio-reveal mb-12 grid gap-8 lg:grid-cols-[.78fr_1.22fr] lg:items-end">
             <h2 className="text-[clamp(2.35rem,4.2vw,4.6rem)] font-black leading-[.94] tracking-[-.05em] text-[#0d2931]">Entrá a cada proyecto como si fuera un listing.</h2>
             <p className="max-w-3xl text-lg font-semibold leading-8 text-[#52656b]">Las fichas incluyen galería, contexto de diseño y métricas de ROI orientativas. El objetivo: que la prueba visual venda antes de la llamada.</p>
           </div>
-          <div className="grid gap-7 lg:grid-cols-2 xl:grid-cols-3">
+          <div className="portfolio-project-grid grid gap-8 md:grid-cols-2">
             {alburyProjects.map((project) => (
               <div key={project.slug} className="project-card">
                 <PropertyPerformanceCard project={project} href={`/portfolio/${project.slug}`} />

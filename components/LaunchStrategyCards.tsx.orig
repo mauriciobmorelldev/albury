@@ -1,0 +1,67 @@
+"use client";
+
+import { useState } from "react";
+
+const deliverables = [
+  { title: "Tableros de diseño", copy: "Moodboards visuales que muestran cómo conviven mobiliario, materiales y paleta antes de comprar.", icon: "board" },
+  { title: "Planificación del espacio", copy: "Layouts y medidas para que cada pieza encaje, circule bien y responda al uso real del huésped.", icon: "plan" },
+  { title: "Guía de instalación", copy: "Una hoja de ruta clara para ubicar arte, iluminación, decoración y cada elemento del montaje.", icon: "tools" },
+  { title: "Lista de compras", copy: "Selección organizada de productos, cantidades y alternativas para comprar sin fricción ni improvisación.", icon: "cart" },
+  { title: "Instalación en persona", copy: "Coordinación del montaje, estilismo final y preparación de cada escena para la sesión fotográfica.", icon: "install" },
+  { title: "Dirección de lanzamiento", copy: "Orden visual del listing, selección de imágenes y narrativa para comunicar valor desde el primer día.", icon: "launch" },
+];
+
+function DeliverableIcon({ type }: { type: string }) {
+  if (type === "board") return <svg viewBox="0 0 48 48" aria-hidden="true"><rect x="6" y="8" width="36" height="30" rx="2"/><path d="M12 15h10M12 21h7M12 29h8M27 15h9v8h-9zM27 29h9M10 42h28"/></svg>;
+  if (type === "plan") return <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 7h32v28H8zM13 30 33 10M14 13h8v8M27 27h8v4M6 40h36M14 35v5M34 35v5"/></svg>;
+  if (type === "tools") return <svg viewBox="0 0 48 48" aria-hidden="true"><path d="m9 38 15-15M28 19l10-10 3 3-10 10M18 9a8 8 0 0 0 9 10L14 32l-5 7-3-3 7-5 13-13A8 8 0 0 0 18 9Z"/></svg>;
+  if (type === "cart") return <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M7 10h5l4 21h21l4-14H14M19 23h18M19 37a2 2 0 1 0 0 4 2 2 0 0 0 0-4ZM34 37a2 2 0 1 0 0 4 2 2 0 0 0 0-4Z"/></svg>;
+  if (type === "install") return <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M11 7h21v34H11zM16 13h11M16 19h11M16 26h7M35 15h6v23H17M35 22h6M35 29h6"/></svg>;
+  return <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 35V12h32v23M5 39h38M14 30l7-8 6 5 8-11M31 16h4v4"/></svg>;
+}
+
+export default function LaunchStrategyCards() {
+  const [flipped, setFlipped] = useState<number | null>(null);
+
+  return (
+    <section className="launch-strategy-section" aria-labelledby="launch-strategy-title">
+      <div className="launch-strategy-inner">
+        <header className="launch-strategy-heading landing-reveal">
+          <p className="section-label">De la estrategia al lanzamiento</p>
+          <h2 id="launch-strategy-title">Nosotros tomamos todas las decisiones de diseño por vos.</h2>
+          <p>Cada entrega reduce errores, acelera la implementación y mantiene una misma dirección comercial.</p>
+        </header>
+
+        <div className="launch-strategy-grid">
+          {deliverables.map((item, index) => {
+            const isFlipped = flipped === index;
+            return (
+              <button
+                key={item.title}
+                type="button"
+                className={`launch-flip-card landing-reveal ${isFlipped ? "is-flipped" : ""}`}
+                aria-pressed={isFlipped}
+                aria-label={`${item.title}. ${isFlipped ? "Mostrar título" : "Mostrar detalle"}`}
+                onClick={() => setFlipped(isFlipped ? null : index)}
+              >
+                <span className="launch-flip-card-inner">
+                  <span className="launch-flip-face launch-flip-front">
+                    <DeliverableIcon type={item.icon} />
+                    <strong>{item.title}</strong>
+                    <small>Ver detalle</small>
+                  </span>
+                  <span className="launch-flip-face launch-flip-back">
+                    <span>0{index + 1}</span>
+                    <strong>{item.title}</strong>
+                    <small>{item.copy}</small>
+                    <i aria-hidden="true">↩</i>
+                  </span>
+                </span>
+              </button>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}

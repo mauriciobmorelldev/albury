@@ -31,6 +31,11 @@ const comparisons = [
     line: "De espacio correcto a activo premium que compite por valor.",
   },
 ];
+const comparisonTypewriterReserve = comparisons.reduce(
+  (longest, item) => item.line.length > longest.length ? item.line : longest,
+  "",
+);
+
 
 function formatMetric(label: string, projectSlug: string) {
   const project = alburyProjects.find((item) => item.slug === projectSlug);
@@ -83,8 +88,8 @@ export default function BeforeAfterShowcase() {
       <div className="mx-auto max-w-7xl">
         <div className="landing-reveal before-after-heading">
           <p className="section-label">Casos reales / rendimiento</p>
-          <h2 id="before-after-title" className="section-title">La prueba visual vende antes de la llamada.</h2>
-          <p>Tres propiedades, tres lecturas de mercado. Seleccioná un caso para recorrer su dirección visual y las métricas que sostienen cada decisión.</p>
+          <h2 id="before-after-title" className="section-title">La prueba visual vende.</h2>
+          <p>Tres casos reales. Seleccioná una propiedad para comparar su dirección visual y rendimiento.</p>
         </div>
 
         <div className="comparison-tabs mt-10" role="tablist" aria-label="Seleccionar caso">
@@ -102,33 +107,30 @@ export default function BeforeAfterShowcase() {
           <div className="comparison-collage">
             <figure className="comparison-frame comparison-main">
               <div className="comparison-after-image absolute inset-0">
-                <Image src={active.after} alt={active.afterAlt} fill sizes="(max-width: 900px) 100vw, 43vw" className="object-cover" />
+                <Image src={active.after} alt={active.afterAlt} fill quality={95} sizes="(max-width: 1023px) 50vw, 42vw" className="object-cover" />
               </div>
-              <figcaption><span>Dirección visual</span><strong>{project?.title}</strong></figcaption>
             </figure>
-
             <div className="comparison-after-stack">
               <figure className="comparison-frame comparison-before">
-                <Image src={active.before} alt={active.beforeAlt} fill sizes="(max-width: 900px) 100vw, 24vw" className="object-cover" />
-                <figcaption><span>Antes / sin método</span><strong>Sin dirección medible</strong></figcaption>
+                <Image src={active.before} alt={active.beforeAlt} fill quality={95} sizes="(max-width: 1023px) 50vw, 32vw" className="object-cover" />
               </figure>
               <figure className="comparison-frame comparison-detail">
-                <Image src={project?.gallery[1]?.src ?? active.after} alt={project?.gallery[1]?.alt ?? active.afterAlt} fill sizes="(max-width: 900px) 100vw, 30vw" className="object-cover" />
-                <figcaption><span>Después / detalle</span><strong>Una experiencia que se recuerda</strong></figcaption>
+                <Image src={project?.gallery[1]?.src ?? active.after} alt={project?.gallery[1]?.alt ?? active.afterAlt} fill quality={95} sizes="(max-width: 1023px) 50vw, 32vw" className="object-cover" />
               </figure>
             </div>
           </div>
 
           <aside className="comparison-story comparison-frame">
             <p className="comparison-project">Caso 0{activeIndex + 1} · {project?.title}</p>
-            <p className="comparison-typewriter"><span data-typewriter={active.line} /> <i aria-hidden="true" /></p>
-            <p className="comparison-summary">{project?.summary}</p>
+            <p className="comparison-typewriter">
+              <span className="comparison-typewriter-reserve" aria-hidden="true">{comparisonTypewriterReserve}</span>
+              <span className="comparison-typewriter-live"><span data-typewriter={active.line} /> <i aria-hidden="true" /></span>
+            </p>
             <dl>
               <div><dt>Ingresos anuales</dt><dd>{formatMetric("ingresos", active.projectSlug)}</dd></div>
               <div><dt>Ocupación</dt><dd>{formatMetric("ocupación", active.projectSlug)}</dd></div>
               <div><dt>ADR</dt><dd>{formatMetric("adr", active.projectSlug)}</dd></div>
             </dl>
-            <p className="comparison-disclaimer">Comparación visual orientativa. Los resultados dependen de mercado, pricing, operación y situación inicial.</p>
           </aside>
         </div>
       </div>

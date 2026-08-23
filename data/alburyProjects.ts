@@ -17,6 +17,11 @@ export type AlburyProject = {
   palette: string;
   metrics: ProjectMetric[];
   strategy: string[];
+  facts?: Array<{
+    icon: "bedrooms" | "bathrooms" | "area" | "type";
+    label: string;
+    value: string;
+  }>;
   gallery: Array<{
     src: string;
     alt: string;
@@ -49,6 +54,12 @@ export const alburyProjects: AlburyProject[] = [
       "Momentos de descanso que justifican tarifa premium.",
       "Galería pensada como recorrido de decisión, no como álbum decorativo.",
     ],
+    facts: [
+      { icon: "bedrooms", label: "Dormitorios", value: "6 dormitorios" },
+      { icon: "bathrooms", label: "Baños", value: "8 baños" },
+      { icon: "area", label: "Superficie", value: "400 m²" },
+      { icon: "type", label: "Tipo", value: "Casa" },
+    ],
     gallery: [
       { src: "/zip-assets/properties/sa-figuereta-pool-1.webp", alt: "Piscina exterior de Sa Figuereta", label: "Pool hook", wide: true },
       { src: "/zip-assets/properties/sa-figuereta-pool-2.webp", alt: "Exterior premium de Sa Figuereta", label: "Outdoor value" },
@@ -80,6 +91,12 @@ export const alburyProjects: AlburyProject[] = [
       "Amenities que agregan motivos concretos para reservar.",
       "Paleta cálida para diferenciarse sin perder amplitud.",
       "Dirección visual preparada para fotografía y lanzamiento.",
+    ],
+    facts: [
+      { icon: "bedrooms", label: "Dormitorios", value: "4 dormitorios" },
+      { icon: "bathrooms", label: "Baños", value: "3 baños" },
+      { icon: "type", label: "Experiencia", value: "Exterior experiencial" },
+      { icon: "type", label: "Perfil", value: "Zona familiar" },
     ],
     gallery: [
       { src: "/zip-assets/properties/st-agustin-hero-firepit.webp", alt: "Firepit de St Agustin", label: "Hero moment", wide: true },

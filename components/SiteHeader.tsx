@@ -46,9 +46,9 @@ export default function SiteHeader() {
               {item.label}
             </Link>
           ))}
-          <Link href="/#contacto" className="header-consultation hidden items-center xl:inline-flex">
+          <button type="button" data-booking-trigger className="header-consultation hidden items-center xl:inline-flex">
             Solicitá tu diagnóstico
-          </Link>
+          </button>
         </div>
 
         <button
@@ -69,9 +69,9 @@ export default function SiteHeader() {
               {item.label}
             </Link>
           ))}
-          <Link href="/#contacto" className="header-consultation mt-1 px-4 py-3 text-xs font-black uppercase tracking-[.12em]" onClick={() => setOpen(false)}>
+          <button type="button" data-booking-trigger className="header-consultation mt-1 px-4 py-3 text-left text-xs font-black uppercase tracking-[.12em]" onClick={() => setOpen(false)}>
             Solicitá tu diagnóstico
-          </Link>
+          </button>
         </div>
       ) : null}
     </header>

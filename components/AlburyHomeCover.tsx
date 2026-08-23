@@ -27,7 +27,7 @@ export default function AlburyHomeCover() {
         </div>
         <div className="cover-shade absolute inset-0" />
         <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-[1320px] items-center justify-center px-5 pt-20 text-center sm:px-8">
-          <div className="max-w-[980px]">
+          <div className="cover-copy max-w-[980px]">
             <h1 className="cover-reveal text-[clamp(2.5rem,4.4vw,4.6rem)] font-bold uppercase leading-[.96] tracking-[-.045em]">Diseño estratégico.<br />Rentabilidad excepcional.</h1>
             <p className="cover-reveal mx-auto mt-6 max-w-2xl text-[clamp(1rem,1.3vw,1.18rem)] leading-8 text-white/78">Transformamos propiedades STR en activos premium que generan más ingresos.</p>
             <div className="cover-reveal mt-9 flex flex-wrap justify-center gap-3">

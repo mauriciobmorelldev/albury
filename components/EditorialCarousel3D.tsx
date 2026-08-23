@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useLayoutEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 
 type CarouselShot = {
   src: string;
@@ -32,34 +32,12 @@ function CarouselArrow({ direction }: { direction: "previous" | "next" }) {
 export default function EditorialCarousel3D({ shots, metrics }: EditorialCarousel3DProps) {
   const [active, setActive] = useState(0);
   const touchStartRef = useRef<number | null>(null);
-  const titleRef = useRef<HTMLSpanElement>(null);
   const activeShot = shots[active];
   const activeMetric = metrics[active];
 
   const move = (direction: number) => {
     setActive((current) => (current + direction + shots.length) % shots.length);
   };
-
-  useLayoutEffect(() => {
-    const target = titleRef.current;
-    const title = activeShot?.label ?? "";
-    if (!target || !title) return;
-
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      target.textContent = title;
-      return;
-    }
-
-    let index = 0;
-    target.textContent = "";
-    const timer = window.setInterval(() => {
-      index += 1;
-      target.textContent = title.slice(0, index);
-      if (index >= title.length) window.clearInterval(timer);
-    }, 38);
-
-    return () => window.clearInterval(timer);
-  }, [activeShot?.label]);
 
   if (!activeShot) return null;
 
@@ -94,13 +72,6 @@ export default function EditorialCarousel3D({ shots, metrics }: EditorialCarouse
           sizes="(max-width: 899px) 100vw, 70vw"
           className="editorial-spread-image"
         />
-        <figcaption>
-          <span>Albury Design</span>
-          <strong>{activeShot.label}</strong>
-        </figcaption>
-        <div className="editorial-spread-page" aria-hidden="true">
-          {String(active + 1).padStart(2, "0")}
-        </div>
       </figure>
 
       <aside className="editorial-spread-copy" aria-live="polite">
@@ -111,10 +82,7 @@ export default function EditorialCarousel3D({ shots, metrics }: EditorialCarouse
 
         <div className="editorial-spread-story">
           <p>{activeShot.project}</p>
-          <h3>
-            <span ref={titleRef}>{activeShot.label}</span>
-            <i aria-hidden="true" />
-          </h3>
+          <h3 key={activeShot.src} className="editorial-spread-title">{activeShot.label}</h3>
           <p>{activeMetric?.copy ?? "Una escena diseñada para comunicar intención, valor percibido y una experiencia difícil de comparar."}</p>
 
           {activeMetric ? (

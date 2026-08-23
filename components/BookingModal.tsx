@@ -47,7 +47,7 @@ export default function BookingModal() {
   return (
     <div className="luxury-modal booking-modal fixed inset-0 z-[90] grid place-items-center px-4 py-5" role="dialog" aria-modal="true" aria-label="Solicitá tu diagnóstico de rentabilidad">
       <button className="booking-modal-backdrop absolute inset-0 cursor-default" aria-label="Cerrar popup" onClick={() => setOpen(false)} />
-      <div className="booking-panel relative z-10 max-h-[92svh] w-full max-w-[980px] overflow-hidden">
+      <div className="booking-panel relative z-10 max-h-[92svh] w-full max-w-[1120px] overflow-hidden">
         <button type="button" aria-label="Cerrar" className="booking-close" onClick={() => setOpen(false)}>
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" /></svg>
         </button>
@@ -56,7 +56,11 @@ export default function BookingModal() {
           <aside className="booking-intro">
             <div>
               <p className="booking-kicker">Albury Design</p>
-              <h2>Solicitá tu diagnóstico de rentabilidad.</h2>
+              <h2>
+                <span>Solicitá tu</span>
+                <span>diagnóstico de</span>
+                <span>rentabilidad.</span>
+              </h2>
               <p>Revisamos mercado, huésped ideal, oportunidad de ADR y brechas visuales para definir si el diseño puede mejorar el rendimiento del activo.</p>
             </div>
             <dl className="booking-meta">
@@ -77,7 +81,11 @@ export default function BookingModal() {
               <form onSubmit={handleSubmit} className="booking-form">
                 <div className="booking-mobile-heading">
                   <p className="booking-kicker">Albury Design</p>
-                  <h2>Solicitá tu diagnóstico de rentabilidad.</h2>
+                  <h2>
+                    <span>Solicitá tu</span>
+                    <span>diagnóstico de</span>
+                    <span>rentabilidad.</span>
+                  </h2>
                 </div>
 
                 <div className="booking-field-grid">
