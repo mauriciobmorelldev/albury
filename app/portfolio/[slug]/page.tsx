@@ -77,25 +77,17 @@ export default async function PortfolioProjectPage({ params }: { params: Promise
             ) : null}
             <p className="property-detail-summary">{project.summary}</p>
 
-            <div className="project-case-strategy">
-              <p className="property-detail-label">Dirección estratégica</p>
-              <ol>
-                {project.strategy.map((item, index) => (
-                  <li key={item}><span>0{index + 1}</span><p>{item}</p></li>
-                ))}
-              </ol>
-            </div>
           </article>
 
           <aside className="project-performance" aria-labelledby="project-performance-title">
             <p className="property-detail-label">Rendimiento estimado</p>
-            <h2 id="project-performance-title">Performance breakdown</h2>
-            <p>Lectura orientativa basada en estrategia, mercado y operación del activo.</p>
+            <h2 id="project-performance-title">Desglose del rendimiento</h2>
+            <p>Rendimiento estimado según la estrategia, el mercado y la operación de la propiedad.</p>
             <dl>
               {project.metrics.map((metric) => (
                 <div key={metric.label}>
-                  <dt>{metric.label}</dt>
-                  <dd>{metric.prefix ?? ""}{metric.value.toLocaleString("en-US")}{metric.suffix ?? ""}</dd>
+                  <dt>{metric.label === "Ocupación" ? "Tasa de ocupación" : metric.label === "ADR objetivo" ? "Tarifa diaria promedio objetivo" : metric.label === "Rating objetivo" ? "Calificación de la propiedad objetivo" : metric.label}</dt>
+                  <dd>{metric.prefix ?? ""}{metric.value.toLocaleString("es-ES")}{metric.suffix ?? ""}</dd>
                 </div>
               ))}
             </dl>
@@ -106,7 +98,7 @@ export default async function PortfolioProjectPage({ params }: { params: Promise
 
       <ProjectComments projectTitle={project.title} />
 
-      <SiteFooter />
+      <SiteFooter property />
       <ChatPopup />
       <BookingModal />
     </main>

@@ -49,9 +49,9 @@ export default function MideAccordion() {
           <div className="landing-reveal mide-editorial-intro">
             <p className="section-label">Método M.I.D.E. / resultados</p>
             <span className="mide-watermark" aria-hidden="true">M.I.D.E.</span>
-            <h2 id="mide-title" className="section-title">Cuatro pilares.<br />Un sistema.</h2>
+            <h2 id="mide-title" className="section-title">Un método creado para maximizar la rentabilidad.</h2>
             <EditorialTypewriter text="No decoramos. Medimos." />
-            <p className="mide-intro-copy">Convertimos cada propiedad en un activo mediante decisiones que conectan mercado, experiencia y ejecución.</p>
+            <p className="mide-intro-copy">Si no se puede medir, no lo hacemos. M.I.D.E. es el sistema con el que convertimos cada propiedad en un activo.</p>
           </div>
 
           <div ref={rootRef} className="mide-accordion">

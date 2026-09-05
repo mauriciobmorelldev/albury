@@ -36,18 +36,15 @@ export default function ImmersivePortfolio() {
         </div>
         <div className="route-hero-shade" />
         <div className="route-hero-content portfolio-reveal">
-          <h1>Proyectos que funcionan como listings deseables.</h1>
-          <p>Cada propiedad se presenta como una experiencia completa: galería, decisiones de diseño y lectura de ROI para entender por qué el espacio vende.</p>
+          <h1>Donde diseño y estrategia se encuentran con rendimiento.</h1>
+          <p>Creamos espacios temáticos que ofrecen una experiencia inolvidable.</p>
           <a href="#proyectos" className="editorial-button">Explorar proyectos</a>
         </div>
       </section>
 
       <section id="proyectos" className="bg-[#e5e9eb] px-5 py-24 sm:px-8 lg:px-14 lg:py-32">
         <div className="mx-auto max-w-7xl">
-          <div className="portfolio-reveal mb-12 grid gap-8 lg:grid-cols-[.78fr_1.22fr] lg:items-end">
-            <h2 className="text-[clamp(2.35rem,4.2vw,4.6rem)] font-black leading-[.94] tracking-[-.05em] text-[#0d2931]">Entrá a cada proyecto como si fuera un listing.</h2>
-            <p className="max-w-3xl text-lg font-semibold leading-8 text-[#52656b]">Las fichas incluyen galería, contexto de diseño y métricas de ROI orientativas. El objetivo: que la prueba visual venda antes de la llamada.</p>
-          </div>
+          <h2 className="sr-only">Nuestros proyectos</h2>
           <div className="portfolio-project-grid grid gap-8 md:grid-cols-2">
             {alburyProjects.map((project) => (
               <div key={project.slug} className="project-card">

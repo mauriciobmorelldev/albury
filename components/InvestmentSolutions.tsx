@@ -11,7 +11,7 @@ const plans = [
     title: "Diseño y Gestión del Proyecto",
     intro: "Para inversionistas que buscan un diseño competitivo sin involucrarse en cada decisión. Gestionamos investigación, estrategia, conceptualización, compras, coordinación, instalación, ambientación y dirección fotográfica.",
     bestFor: "Ideal si querés delegar el proyecto completo y llegar a un listing listo para competir.",
-    features: ["Análisis del público objetivo", "Investigación del mercado STR", "Tableros de diseño", "Planos del espacio", "Lista de compras", "Diseño de mejoras estéticas", "Gestión de pedidos", "Coordinación de contratistas", "Supervisión de la instalación", "Decoración y ambientación", "Dirección de sesión fotográfica"],
+    features: ["Análisis del público objetivo", "Investigación del mercado STR", "Tableros de diseño", "Planos del espacio", "Lista de compras", "Diseño de mejoras estéticas", "Gestión de pedidos", "Coordinación de contratistas", "Supervisión de la instalación del mobiliario", "Decoración y ambientación", "Dirección de sesión fotográfica"],
   },
 ];
 
@@ -48,7 +48,7 @@ export default function InvestmentSolutions() {
               </div>
 
               <button type="button" data-booking-trigger className="editorial-button editorial-button-primary">
-                Agendar llamada
+                Solicitá tu diagnóstico
               </button>
             </article>
           ))}

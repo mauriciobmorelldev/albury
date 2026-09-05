@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useEffect, useLayoutEffect, useRef } from "react";
 import { getGsap } from "@/lib/gsap";
 
-export default function SiteFooter() {
+export default function SiteFooter({ results = false, property = false, home = false }: { results?: boolean; property?: boolean; home?: boolean }) {
   const rootRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
 
@@ -54,7 +54,7 @@ export default function SiteFooter() {
   }, []);
 
   return (
-    <div ref={rootRef} className="site-footer-stack">
+    <div ref={rootRef} className={`site-footer-stack${home ? " is-home" : ""}`}>
       <section className="global-booking-cta" aria-labelledby="global-booking-title">
         <div className="global-booking-media">
           <video ref={videoRef} data-src="/videos/albury-booking-horizontal.mp4?v=1" muted loop playsInline preload="none" poster="/milanote-assets/WhatsApp Image 2026-08-07 at 9.48.41 PM.jpeg" aria-hidden="true" tabIndex={-1} />
@@ -62,10 +62,10 @@ export default function SiteFooter() {
           <p className="footer-reveal">Diseño estratégico · STR</p>
         </div>
         <div className="global-booking-copy footer-reveal">
-          <p className="section-label">¿Listo para comenzar?</p>
-          <h2 id="global-booking-title">Creamos una propiedad que los huéspedes quieran reservar.</h2>
-          <p>Contanos sobre tu propiedad, tus objetivos y el momento del proyecto. En una primera llamada evaluamos el potencial y el mejor próximo paso.</p>
-          <button type="button" data-booking-trigger className="editorial-button editorial-button-primary">Agendar llamada</button>
+          <p className="section-label">{property ? "Su próximo paso" : home ? "Diseño estratégico · STR" : results ? "Hablemos de su propiedad" : "¿Listo para comenzar?"}</p>
+          <h2 id="global-booking-title">{property ? "Hablemos de su propiedad" : home ? "Diseño basado en estrategia, diseñado para el rendimiento." : "Solicitá tu diagnóstico"}</h2>
+          <p>{property ? "Una conversación enfocada a evaluar el potencial de desempeño y determinar el camino correcto a seguir. Esta llamada está diseñada para comprender sus objetivos, su mercado y dónde el diseño estratégico puede crear influencia. Saldrá con claridad sobre los próximos pasos y si Albury Design es el socio adecuado para su inversión." : home ? "Hablemos de su propiedad y cómo podemos maximizar su potencial." : "Hablemos de su propiedad y cómo podemos maximizar su potencial. Reserve una consulta gratuita para analizar su proyecto, obtener un cronograma estimado y ver si Albury Design es la opción adecuada para sus objetivos de inversión en STR."}</p>
+          <button type="button" data-booking-trigger className="editorial-button editorial-button-primary">Solicitá tu diagnóstico</button>
         </div>
       </section>
 
@@ -98,7 +98,7 @@ export default function SiteFooter() {
         </div>
         <div className="footer-reveal mt-10 flex flex-col gap-4 border-t border-[#236f7e]/12 pt-6 text-xs font-bold text-[#675f58] sm:flex-row sm:items-center sm:justify-between">
           <p>Copyright 2026 · All rights reserved</p>
-          <button data-booking-trigger className="w-fit rounded-full bg-[#236f7e] px-5 py-3 text-[#fffaf2] transition hover:-translate-y-1 hover:bg-[#174f5b]">Evaluar mi propiedad</button>
+          <button data-booking-trigger className="w-fit rounded-full bg-[#236f7e] px-5 py-3 text-[#fffaf2] transition hover:-translate-y-1 hover:bg-[#174f5b]">Solicitá tu diagnóstico</button>
         </div>
       </div>
     </footer>

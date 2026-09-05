@@ -1,22 +1,22 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import BeforeAfterShowcase from "@/components/BeforeAfterShowcase";
 import CostlyErrors from "@/components/CostlyErrors";
 import InvestmentSolutions from "@/components/InvestmentSolutions";
 import LaunchStrategyCards from "@/components/LaunchStrategyCards";
+import TestimonialsSection from "@/components/TestimonialsSection";
 import MideAccordion from "@/components/MideAccordion";
 import ServicesFrequentlyAskedQuestions from "@/components/ServicesFrequentlyAskedQuestions";
 import { useLayoutEffect, useRef } from "react";
 import { getGsap } from "@/lib/gsap";
 
 const process = [
-  ["Diagnóstico de rentabilidad", "Analizamos mercado, huésped, pricing, competencia y desempeño actual."],
-  ["Estrategia", "Definimos el posicionamiento y la experiencia que debe recordar el huésped."],
-  ["Diseño STR", "Diseñamos layout, mobiliario, amenities y momentos visuales con intención comercial."],
-  ["Implementación", "Centralizamos moodboards, lista de compras, guía de instalación y manuales."],
-  ["Lanzamiento y optimización", "Preparamos la propiedad para fotos, publicación y lectura de resultados."],
+  ["Diagnóstico de rentabilidad", "Analizamos mercado, huésped, pricing, competencia y desempeño actual.", "/milanote-assets/WhatsApp Image 2026-08-07 at 9.45.04 PM.jpeg"],
+  ["Estrategia", "Definimos el posicionamiento y la experiencia que debe recordar el huésped.", "/milanote-assets/WhatsApp Image 2026-08-07 at 9.45.05 PM.jpeg"],
+  ["Diseño STR", "Diseñamos layout, mobiliario, amenities y momentos visuales con intención comercial.", "/milanote-assets/WhatsApp Image 2026-08-07 at 9.46.48 PM.jpeg"],
+  ["Implementación", "Centralizamos moodboards, lista de compras, guía de instalación y manuales.", "/milanote-assets/WhatsApp Image 2026-08-07 at 9.48.40 PM.jpeg"],
+  ["Lanzamiento y optimización", "Preparamos la propiedad para fotos, publicación y lectura de resultados.", "/milanote-assets/WhatsApp Image 2026-08-07 at 9.48.41 PM.jpeg"],
 ];
 
 function useEditorialReveal() {
@@ -44,8 +44,8 @@ export function ServicesLanding() {
         </div>
         <div className="route-hero-shade" />
         <div className="route-hero-content landing-reveal">
-          <h1>Diseño basado en estrategia.<br />Diseñado para el rendimiento.</h1>
-          <p>Creamos espacios que se ven increíbles y, al mismo tiempo, están preparados para maximizar percepción, conversión y retorno.</p>
+          <h1>Nos encargamos de diseñar tu ventaja competitiva.</h1>
+          <p>Diseñamos espacios para que tu propiedad gane más, reserve más rápido y destaque.</p>
         </div>
       </section>
 
@@ -54,24 +54,31 @@ export function ServicesLanding() {
       <section className="px-5 py-20 sm:px-8 lg:px-14 lg:py-28">
         <div className="mx-auto max-w-7xl">
           <div className="landing-reveal grid gap-8 lg:grid-cols-[.65fr_1.35fr]">
-            <p className="section-label">De la estrategia al lanzamiento</p>
-            <h2 className="section-title">Un proceso fluido basado en tus objetivos de inversión.</h2>
+            <p className="section-label">El recorrido de tu propiedad</p>
+            <h2 className="section-title">Un camino claro desde la estrategia hasta el lanzamiento.</h2>
           </div>
-          <div className="mt-14 border-t border-[#e5dece]/20">
-            {process.map(([title, copy], index) => (
-              <article key={title} className="landing-reveal process-row grid gap-5 border-b border-[#e5dece]/20 py-8 md:grid-cols-[90px_.75fr_1.25fr] md:items-start">
-                <span>0{index + 1}</span><h3>{title}</h3><p>{copy}</p>
+          <div className="board-process-grid mt-14">
+            {process.map(([title, copy, image], index) => (
+              <article key={title} className="landing-reveal board-process-card">
+                <span>0{index + 1}</span><h3>{title}</h3>
+                <div className="board-process-image"><Image src={image} alt={title} fill sizes="(max-width: 639px) 100vw, (max-width: 1099px) 50vw, 20vw" className="object-cover" /></div>
+                <p>{copy}</p>
               </article>
             ))}
           </div>
+          <button type="button" data-booking-trigger className="editorial-button editorial-button-primary mt-10">Solicitá tu diagnóstico</button>
         </div>
       </section>
 
-      <section className="landing-media relative min-h-[72svh] overflow-hidden">
-        <Image src="/milanote-assets/WhatsApp Image 2026-08-07 at 9.48.41 PM.jpeg" alt="Proyecto Albury Design" fill sizes="100vw" className="object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/35 to-transparent" />
-        <div className="landing-reveal relative z-10 mx-auto flex min-h-[72svh] max-w-7xl items-end px-5 py-16 sm:px-8 lg:px-14">
-          <div className="max-w-2xl"><p className="section-label">Entregables centralizados</p><h2 className="section-title mt-5">Moodboards, lista de compra, guía de implementación y manuales.</h2></div>
+      <section className="board-launch">
+        <div className="board-launch-image">
+          <Image src="/milanote-assets/WhatsApp Image 2026-08-07 at 9.48.41 PM.jpeg" alt="Proyecto Albury Design" fill sizes="(max-width: 899px) 100vw, 50vw" className="object-cover" />
+        </div>
+        <div className="board-launch-copy landing-reveal">
+          <p className="section-label">Un proceso claro</p>
+          <h2>De la estrategia al lanzamiento</h2>
+          <p>Un proceso fluido basado en sus objetivos de inversión.</p>
+          <p>Cada proyecto sigue una secuencia clara que ahorra tiempo y elimina conjeturas. Al tomar decisiones más rápidas y fundamentadas en investigación y estrategia, las propiedades comienzan a generar flujo de efectivo antes y están posicionadas para obtener mayores retornos.</p>
         </div>
       </section>
 
@@ -91,35 +98,45 @@ export function ResultsLanding() {
         <div className="route-hero-shade" />
         <div className="route-hero-content landing-reveal">
           <h1>El diseño se ve.<br />El resultado se mide.</h1>
-          <p>Casos y rangos que muestran cómo una propiedad deja de competir por precio y empieza a construir valor.</p>
+          <p>Aumentá tu facturación un 53% bajo el método M.I.D.E.</p>
           <a href="#comparativa" className="editorial-button">Explorar resultados</a>
         </div>
       </section>
       <BeforeAfterShowcase />
+      <section className="results-method-difference px-5 py-16 sm:px-8 lg:px-14 lg:py-24">
+        <div className="landing-reveal mx-auto max-w-4xl text-center">
+          <h2 className="section-title">La diferencia no es la propiedad. Es el método.</h2>
+          <p className="mt-7 text-lg leading-8">Mismo mercado, mismo tipo de huésped, mismo punto de partida. La brecha entre ambos resultados es exactamente lo que resuelve M.I.D.E.</p>
+        </div>
+      </section>
       <CostlyErrors />
-      <section className="results-strategy-intro px-5 py-20 sm:px-8 lg:px-14 lg:py-28">
-        <div className="landing-reveal mx-auto max-w-7xl">
-          <div className="results-strategy-kicker">
-            <p className="section-label">Diseño basado en estrategia</p>
-            <span>+30–50%</span>
+      <section className="board-proof px-5 py-20 sm:px-8 lg:px-14 lg:py-28">
+        <div className="landing-reveal board-proof-grid mx-auto max-w-7xl">
+          <div>
+            <p className="section-label">Diseño respaldado por resultados</p>
+            <h2>El impacto de diseñar con un método.</h2>
+            <dl className="board-proof-metrics">
+              <div><dt>Aumento en los ingresos</dt><dd>+30–50%</dd></div>
+              <div><dt>Horas ahorradas</dt><dd>300</dd></div>
+              <div><dt>Calificación de los huéspedes</dt><dd>4,8</dd></div>
+            </dl>
           </div>
-          <div className="results-strategy-copy">
-            <h2 className="section-title">Diseñado para el rendimiento.</h2>
-            <div>
-              <p>En Albury Design buscamos más que un diseño atractivo. Creamos espacios que se ven increíbles y, al mismo tiempo, están preparados para maximizar el retorno de inversión.</p>
-              <p>Todo bajo la metodología M.I.D.E.</p>
-            </div>
+          <div className="board-proof-copy">
+            <strong>+150</strong>
+            <p>Hoy hemos ayudado a más de 150 propietarios en todo el mundo a convertir sus alquileres a corto plazo en propiedades de alto rendimiento.</p>
+            <p>Todo bajo un mismo método: M.I.D.E.</p>
           </div>
         </div>
       </section>
       <MideAccordion />
-      <LaunchStrategyCards />
-      <section className="px-5 py-24 sm:px-8 lg:px-14 lg:py-32">
-        <div className="landing-reveal mx-auto grid max-w-7xl gap-10 border-y border-[#e5dece]/20 py-14 lg:grid-cols-[1fr_.7fr] lg:items-end">
-          <h2 className="section-title">Explorá proyectos, escenas y métricas en un mismo recorrido.</h2>
-          <Link href="/portfolio#impacto" className="editorial-button editorial-button-primary w-fit lg:justify-self-end">Ver portfolio y métricas</Link>
+      <section className="results-outcome px-5 py-16 sm:px-8 lg:px-14 lg:py-24">
+        <div className="landing-reveal mx-auto grid max-w-7xl gap-8 lg:grid-cols-[1.2fr_.8fr] lg:items-center">
+          <h2 className="section-title">Una propiedad que gana más, reserva más rápido y destaca.</h2>
+          <div><strong className="results-outcome-stat">+30–50%</strong><p className="mt-5 text-lg leading-8">Nuestros clientes ven un aumento del 30–50% en sus ingresos después de trabajar con nosotros.</p></div>
         </div>
       </section>
+      <LaunchStrategyCards />
+      <TestimonialsSection />
     </main>
   );
 }

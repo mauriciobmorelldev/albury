@@ -3,10 +3,10 @@
 import { useState } from "react";
 
 const deliverables = [
-  { title: "Tableros de diseño", copy: "Moodboards visuales que muestran cómo conviven mobiliario, materiales y paleta antes de comprar.", icon: "board" },
-  { title: "Planificación del espacio", copy: "Layouts y medidas para que cada pieza encaje, circule bien y responda al uso real del huésped.", icon: "plan" },
-  { title: "Guía de instalación", copy: "Una hoja de ruta clara para ubicar arte, iluminación, decoración y cada elemento del montaje.", icon: "tools" },
-  { title: "Lista de compras", copy: "Selección organizada de productos, cantidades y alternativas para comprar sin fricción ni improvisación.", icon: "cart" },
+  { title: "Tableros de diseño", copy: "Creamos tableros visuales que muestran cómo se integrarán los muebles en cada espacio.", icon: "board" },
+  { title: "Planificación del espacio", copy: "Diseñamos planos para garantizar que todo el mobiliario encaje perfectamente y para que sepas dónde colocar cada elemento.", icon: "plan" },
+  { title: "Guía de instalación", copy: "Proporcionamos recomendaciones detalladas sobre la ubicación de obras de arte, televisores, decoración y más.", icon: "tools" },
+  { title: "Lista de compras", copy: "Nuestra lista de compras intuitiva y fácil de usar hace que el proceso de pedido sea rápido y eficiente.", icon: "cart" },
   { title: "Instalación en persona", copy: "Coordinación del montaje, estilismo final y preparación de cada escena para la sesión fotográfica.", icon: "install" },
   { title: "Dirección de lanzamiento", copy: "Orden visual del listing, selección de imágenes y narrativa para comunicar valor desde el primer día.", icon: "launch" },
 ];
@@ -28,7 +28,8 @@ export default function LaunchStrategyCards() {
       <div className="launch-strategy-inner">
         <header className="launch-strategy-heading landing-reveal">
           <p className="section-label">De la estrategia al lanzamiento</p>
-          <h2 id="launch-strategy-title">Nosotros tomamos todas las decisiones de diseño por vos.</h2>
+          <h2 id="launch-strategy-title">Nos encargamos de cada decisión de diseño.</h2>
+          <p>Para que vos no tengas que estar encima de ninguna. Desde los primeros tableros hasta la instalación y el lanzamiento.</p>
         </header>
 
         <div className="launch-strategy-grid">

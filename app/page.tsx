@@ -9,7 +9,7 @@ export default function Home() {
     <main className="site-shell-luxury min-h-screen overflow-hidden bg-[#100e0d] text-[#f4eee5]">
       <SiteHeader />
       <AlburyHomeCover />
-      <SiteFooter />
+      <SiteFooter home />
       <ChatPopup />
       <BookingModal />
     </main>

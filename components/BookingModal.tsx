@@ -104,7 +104,7 @@ export default function BookingModal() {
                 <label>Objetivo principal<textarea rows={3} placeholder="ADR, ocupación, lanzamiento o reposicionamiento..." /></label>
 
                 <button className="editorial-button editorial-button-primary booking-submit">
-                  Solicitar diagnóstico
+                  Solicitá tu diagnóstico
                   <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-5-5 5 5-5 5" /></svg>
                 </button>
                 <p className="booking-legal">Al enviar este formulario aceptás que Albury Design te contacte usando la información proporcionada.</p>

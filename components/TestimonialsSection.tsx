@@ -14,7 +14,7 @@ export default function TestimonialsSection() {
 
   useLayoutEffect(() => {
     const root = rootRef.current;
-    if (!root) return;
+    if (!root || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const { gsap } = getGsap();
     const ctx = gsap.context(() => {
       gsap.from(".testimonial-heading", {
@@ -31,23 +31,21 @@ export default function TestimonialsSection() {
   }, []);
 
   return (
-    <section ref={rootRef} className="relative overflow-hidden bg-charcoal px-5 py-20 text-warm-white sm:px-8 lg:px-14 lg:py-24">
-      <div className="absolute left-1/2 top-0 h-px w-[80vw] -translate-x-1/2 bg-gradient-to-r from-transparent via-soft-gold/35 to-transparent" />
+    <section ref={rootRef} className="results-testimonials bg-[#e5dece] px-5 py-20 text-[#100f0c] sm:px-8 lg:px-14 lg:py-24">
       <div className="mx-auto max-w-7xl">
-        <p className="testimonial-heading mb-5 text-xs font-black uppercase tracking-[.22em] text-soft-gold">Lo que nuestros clientes dicen</p>
-        <h2 className="testimonial-heading max-w-5xl text-4xl font-black uppercase leading-[.92] tracking-[-.035em] sm:text-6xl lg:text-7xl">Resultados que se sienten en reservas.</h2>
+        <p className="testimonial-heading mb-5 text-xs font-bold uppercase tracking-[.18em] text-[#7b2431]">Lo que nuestros clientes dicen</p>
+        <h2 className="testimonial-heading max-w-5xl text-[clamp(2.35rem,4.2vw,4.6rem)] font-bold uppercase leading-[.94] tracking-[-.05em]">Resultados que se sienten en reservas.</h2>
         <div className="mt-8 grid gap-5 lg:grid-cols-3">
-          {testimonials.map((item, index) => (
+          {testimonials.map((item) => (
             <article
               key={item.name}
-              className="rounded-[34px] border border-warm-white/12 bg-warm-white/[.07] p-7 opacity-100 shadow-[0_24px_80px_rgba(0,0,0,.16)] backdrop-blur-xl transition duration-300 hover:-translate-y-2 hover:bg-warm-white/[.1] sm:p-8"
-              style={{ animation: `fadeUp .55s ease ${index * 90}ms both` }}
+              className="flex min-w-0 flex-col border-t-2 border-[#7b2431] bg-[#f0ecdf] p-6 sm:p-8"
             >
-              <p className="text-6xl font-black leading-none text-soft-gold/70">“</p>
-              <p className="mt-4 text-base font-semibold leading-8 text-warm-white/74">{item.quote}.</p>
-              <div className="mt-8 border-t border-warm-white/12 pt-6">
-                <h3 className="text-2xl font-black leading-none">{item.name}</h3>
-                <p className="mt-2 text-xs font-black uppercase tracking-[.16em] text-warm-white/45">{item.role}</p>
+              <span aria-hidden="true" className="text-6xl font-bold leading-none text-[#7b2431]">“</span>
+              <blockquote className="mb-8 mt-4 text-base leading-8 text-[#514d43]">{item.quote}.</blockquote>
+              <div className="mt-auto border-t border-[#100f0c]/15 pt-6">
+                <h3 className="text-xl font-bold leading-tight tracking-[-.025em]">{item.name}</h3>
+                <p className="mt-2 text-xs font-semibold uppercase leading-5 tracking-[.12em] text-[#514d43]">{item.role}</p>
               </div>
             </article>
           ))}

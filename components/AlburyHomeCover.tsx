@@ -29,7 +29,7 @@ export default function AlburyHomeCover() {
         <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-[1320px] items-center justify-center px-5 pt-20 text-center sm:px-8">
           <div className="cover-copy max-w-[980px]">
             <h1 className="cover-reveal text-[clamp(2.5rem,4.4vw,4.6rem)] font-bold uppercase leading-[.96] tracking-[-.045em]">Diseño estratégico.<br />Rentabilidad excepcional.</h1>
-            <p className="cover-reveal mx-auto mt-6 max-w-2xl text-[clamp(1rem,1.3vw,1.18rem)] leading-8 text-white/78">Transformamos propiedades STR en activos premium que generan más ingresos.</p>
+            <p className="cover-reveal mx-auto mt-6 max-w-2xl text-[clamp(1rem,1.3vw,1.18rem)] leading-8 text-white/78">Multiplicá los ingresos de tu Airbnb.</p>
             <div className="cover-reveal mt-9 flex flex-wrap justify-center gap-3">
               <a href="#contacto" data-booking-trigger className="editorial-button editorial-button-primary">Solicitá tu diagnóstico</a>
               <Link href="/resultados" className="editorial-button">Ver resultados</Link>
@@ -40,10 +40,10 @@ export default function AlburyHomeCover() {
 
       <section id="contacto" className="home-closing px-5 py-24 sm:px-8 lg:px-14 lg:py-32">
         <div className="cover-closing mx-auto grid max-w-7xl gap-10 border-y border-[#e5dece]/20 py-14 lg:grid-cols-[1.2fr_.8fr] lg:items-end">
-          <h2 className="max-w-4xl text-[clamp(2.4rem,4.8vw,5rem)] font-bold uppercase leading-[.9] tracking-[-.055em]">Convirtamos tu propiedad en un activo premium.</h2>
+          <h2 className="max-w-4xl text-[clamp(2.4rem,4.8vw,5rem)] font-bold uppercase leading-[.9] tracking-[-.055em]">No compitas por precio. Competí por experiencia.</h2>
           <div className="lg:pb-2">
-            <p className="text-lg leading-8 text-[#c5bcaa]">Contanos cómo opera hoy y qué resultado buscás. Evaluamos si el diseño estratégico puede multiplicar su rendimiento.</p>
-            <a href="#contacto" data-booking-trigger className="editorial-button editorial-button-primary mt-7">Solicitá tu diagnóstico de rentabilidad</a>
+            <p className="text-lg leading-8 text-[#c5bcaa]">Resultados medibles desde el primer mes, con la metodología M.I.D.E.</p>
+            <a href="#contacto" data-booking-trigger className="editorial-button editorial-button-primary mt-7">Solicitá tu diagnóstico</a>
           </div>
         </div>
       </section>

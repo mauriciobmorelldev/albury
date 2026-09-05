@@ -88,8 +88,8 @@ export default function BeforeAfterShowcase() {
       <div className="mx-auto max-w-7xl">
         <div className="landing-reveal before-after-heading">
           <p className="section-label">Casos reales / rendimiento</p>
-          <h2 id="before-after-title" className="section-title">La prueba visual vende.</h2>
-          <p>Tres casos reales. Seleccioná una propiedad para comparar su dirección visual y rendimiento.</p>
+          <h2 id="before-after-title" className="section-title">Casos reales de nuestra metodología.</h2>
+          <p>Con M.I.D.E. / sin método. Seleccioná una propiedad para explorar su diseño y rendimiento.</p>
         </div>
 
         <div className="comparison-tabs mt-10" role="tablist" aria-label="Seleccionar caso">
@@ -103,25 +103,35 @@ export default function BeforeAfterShowcase() {
           })}
         </div>
 
-        <div ref={stageRef} className="comparison-stage mt-8" role="tabpanel" aria-live="polite">
-          <div className="comparison-collage">
-            <figure className="comparison-frame comparison-main">
-              <div className="comparison-after-image absolute inset-0">
-                <Image src={active.after} alt={active.afterAlt} fill quality={95} sizes="(max-width: 1023px) 50vw, 42vw" className="object-cover" />
-              </div>
+        <div ref={stageRef} className="comparison-case-panel mt-8" role="tabpanel" aria-live="polite">
+        <p className="comparison-case-caption">Caso 0{activeIndex + 1} · {project?.title}</p>
+        <div className="results-method-comparison mt-5">
+          <article className="results-method-card comparison-frame">
+            <p className="section-label">Sin método</p>
+            <figure className="results-method-image">
+              <Image src={active.before} alt={active.beforeAlt} fill quality={90} sizes="(max-width: 639px) 100vw, 50vw" className="object-cover" />
+              <figcaption>Referencia visual sin método</figcaption>
             </figure>
-            <div className="comparison-after-stack">
-              <figure className="comparison-frame comparison-before">
-                <Image src={active.before} alt={active.beforeAlt} fill quality={95} sizes="(max-width: 1023px) 50vw, 32vw" className="object-cover" />
-              </figure>
-              <figure className="comparison-frame comparison-detail">
-                <Image src={project?.gallery[1]?.src ?? active.after} alt={project?.gallery[1]?.alt ?? active.afterAlt} fill quality={95} sizes="(max-width: 1023px) 50vw, 32vw" className="object-cover" />
-              </figure>
-            </div>
-          </div>
+            <h3>Una propiedad que compite por precio.</h3>
+            <ul><li>Reservas perdidas</li><li>Tarifas nocturnas más bajas</li><li>Reseñas pobres</li></ul>
+            <p className="results-method-verdict"><span>Resultado</span>Diseño inexistente · techo de crecimiento sin resolver.</p>
+          </article>
+          <article className="results-method-card is-mide comparison-frame">
+            <p className="section-label">Con M.I.D.E.</p>
+            <figure className="results-method-image">
+              <div className="comparison-after-image absolute inset-0">
+                <Image src={project?.heroImage ?? active.after} alt={active.afterAlt} fill quality={90} sizes="(max-width: 639px) 100vw, 50vw" className="object-cover" />
+              </div>
+              <figcaption>{project?.title} · Albury Design</figcaption>
+            </figure>
+            <h3>Una experiencia que compite por valor.</h3>
+            <ul><li>Estrategia basada en el mercado</li><li>Amenidades que elevan la percepción y la conversión</li><li>Una experiencia de huésped consistente</li></ul>
+            <p className="results-method-verdict"><span>Resultado</span>Diseño estratégico · una propiedad preparada para rendir.</p>
+          </article>
+        </div>
 
-          <aside className="comparison-story comparison-frame">
-            <p className="comparison-project">Caso 0{activeIndex + 1} · {project?.title}</p>
+          <aside className="comparison-story comparison-frame board-case-result mt-5">
+            <p className="comparison-project">Rendimiento estimado · {project?.title}</p>
             <p className="comparison-typewriter">
               <span className="comparison-typewriter-reserve" aria-hidden="true">{comparisonTypewriterReserve}</span>
               <span className="comparison-typewriter-live"><span data-typewriter={active.line} /> <i aria-hidden="true" /></span>
